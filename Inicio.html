@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xml:lang="es">
+<head >
+    <meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Estilos/estilo.css">
+	<script language="javascript"> 
+mydate = new Date(); 
+myday = mydate.getDay(); 
+mymonth = mydate.getMonth(); 
+myweekday= mydate.getDate();
+myyear=mydate.getFullYear();
+weekday= myweekday; 
+if(myday == 0) 
+day = " Domingo " 
+else if(myday == 1) 
+day = " Lunes " 
+else if(myday == 2) 
+day = " Martes " 
+else if(myday == 3) 
+day = " Miercoles " 
+else if(myday == 4) 
+day = " Jueves " 
+else if(myday == 5) 
+day = " Viernes " 
+else if(myday == 6) 
+day = " Sabado "
+if(mymonth == 0) 
+month = "Enero " 
+else if(mymonth ==1) 
+month = "Febrero " 
+else if(mymonth ==2) 
+month = "Marzo " 
+else if(mymonth ==3) 
+month = "Abril " 
+else if(mymonth ==4) 
+month = "Mayo " 
+else if(mymonth ==5) 
+month = "Junio " 
+else if(mymonth ==6) 
+month = "Julio " 
+else if(mymonth ==7) 
+month = "Agosto " 
+else if(mymonth ==8) 
+month = "Setiembre " 
+else if(mymonth ==9) 
+month = "Octubre " 
+else if(mymonth ==10) 
+month = "Noviembre " 
+else if(mymonth ==11)
+month = "Diciembre " 
+</script>
+	<title>Inicio</title>
+</head>
+<body >
+<center>
+	<div align="left"><script >document.write(day+",");document.write(myweekday+" de "+month+" de "+myyear);</script></div><br>
+<form action="Inicio.php" method="post" onsubmit="Menu.html">
+	<table border="3">
+		<h1>LOGIN</h1>
+		<tr>
+			<th>Ingrese su codigo de Usuario</th><th><input type="text" name="ci"></th>
+		</tr>
+		<tr>
+			<th>Ingrese su Password:</th><th><input type="password" name="pass"></th>
+		</tr>
+	</table>
+	<input id="e" type="submit" value="LOGIN">
+<a href="Personas/ChangePass.html">Olvidaste tu Password?</a><br>
+</form>
+</center>
+</body>
+</html>
