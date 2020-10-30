@@ -1,0 +1,13 @@
+<?php
+// Lectura y escritura para el propietario, nada para los demás
+chmod("/directorio/fichero", 0600);
+
+// Lectura y escritura para el propietario, lectura para los demás
+chmod("/directorio/fichero", 0644);
+
+// Todo para el propietario, lectura y ejecución para los otros
+chmod("/directorio/fichero", 0755);
+
+// Todo para el propietario, lectura y ejecución para el grupo del propietario
+chmod("/directorio/fichero", 0750);
+?>
