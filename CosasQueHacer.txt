@@ -1,0 +1,16 @@
+<====== PENDIENTE ======>
+
+	<=== Sistema en general ===>
+	- Hacer que el sistema puede admitir multiples supermercados
+
+
+<====== COMPLETADO ======>
+	
+	<=== Login ===>
+	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login
+
+	<=== Parte administrativa ===>
+	- Juntar la parte de eliminar pedido con actualizar estado
+
+	<=== Base de datos ===>
+	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha)
