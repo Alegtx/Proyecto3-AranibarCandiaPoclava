@@ -15,6 +15,8 @@
         {
             if(consultasSQL::InsertSQL("administrador", "Usuario, Clave", "'$usuarioAdmin','$passAdmin'"))
             {
+                consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Administrador','Registrar'");
+
                 echo '<img src="assets/img/correcto.png" class="center-all-contens"><br><p class="lead text-center">Administrador añadido éxitosamente</p>';
             }
             else

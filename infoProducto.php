@@ -28,7 +28,7 @@ include './conexion/consultaSQL.php';
                                 <h4><strong>Marca: </strong>'.$fila['Marca'].'</h4><br>
                                 <h4><strong>Precio: </strong>'.$fila['Precio'].'</h4>
                                 <h4><strong>Stock: </strong>'.$fila['Stock'].'</h4>
-
+                                <h4><strong>Supermercado: </strong>'.$fila['NombreAdmin'].'</h4>
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <br><br><br>

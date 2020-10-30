@@ -14,6 +14,9 @@
 
     if(consultasSQL::UpdateSQL("producto", "CodigoProd='$codProductoNew',NombreProd='$nombreProductoNew',CodigoCat='$categoriaProductoNew',Precio='$precioProductoNew',Marca='$marcaProductoNew',Stock='$stockProductoNew'", "CodigoProd='$codProductoOld'"))
     {
+        session_start();
+        consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Producto','Actualizar'");
+
         echo '
         <br>
         <img class="center-all-contens" src="assets/img/Check.png">

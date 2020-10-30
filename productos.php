@@ -25,7 +25,6 @@ include './conexion/consultaSQL.php';
                       <li role="presentation" class="dropdown active">
                         <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Categorías <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
-                          
                           <?php
                             $categorias =  ejecutarSQL::consultar("select * from categoria");
                             while($cate = mysqli_fetch_array($categorias))
@@ -44,7 +43,7 @@ include './conexion/consultaSQL.php';
                         <a href="#" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop2-contents" aria-expanded="false">Supermercados <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2" id="myTabDrop2-contents">
                           <?php
-                            $adminc =  ejecutarSQL::consultar("select * from administrador");
+                            $adminc =  ejecutarSQL::consultar("select * from administrador where Usuario!='admin'");
                             while($admin = mysqli_fetch_array($adminc))
                             {
                               echo '
@@ -77,6 +76,7 @@ include './conexion/consultaSQL.php';
                                            <h3>'.$fila['NombreProd'].'</h3>
                                            <p>'.$fila['Marca'].'</p>
                                            <p>'.$fila['Precio'].' Bs.</p>
+                                           <p><b>'.$fila['NombreAdmin'].'</b></p>
                                            <p class="text-center">
                                                <a href="infoProducto.php?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                                <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
@@ -142,7 +142,7 @@ include './conexion/consultaSQL.php';
                         while($super = mysqli_fetch_array($consultar_supermercado))
                         {
                             echo '<div role="tabpanel" class="tab-pane fade active in" id="'.$super['Usuario'].'" aria-labelledby="'.$super['Usuario'].'-tab"><br>';
-                                $consultar_productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$super['Usuario']."' and CodigoCat='".$categ['CodigoCat']."'and Stock > 0");
+                                $consultar_productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$super['Usuario']."' and Stock > 0");
                                 $totalprod = mysqli_num_rows($consultar_productos);
                                 if($totalprod>0)
                                 {

@@ -13,6 +13,9 @@
     {
         if(consultasSQL::DeleteSQL('producto', "CodigoProd='".$codProducto."'"))
         {
+            session_start();
+            consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Producto','Eliminar'");
+            
             $carpeta='../assets/img-productos/';
             $directorio=$carpeta.$imagen;
             chmod($directorio, 0777);

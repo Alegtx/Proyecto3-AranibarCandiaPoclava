@@ -43,6 +43,8 @@
                                     {
                                         if(consultasSQL::InsertSQL("producto", "CodigoProd, NombreProd, CodigoCat, Precio, Marca, Stock, Imagen, NombreAdmin", "'$codProducto','$nombreProducto','$categoriaProducto','$precioProducto', '$marcaProducto','$stockProducto','".$_FILES['img']['name']."','$adminProd'"))
                                         {
+                                            consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Producto','Registrar'");
+
                                            echo '
                                                 <img src="../assets/img/correctofull.png" class="center-all-contens">
                                                 <br>

@@ -10,6 +10,9 @@
 
     if(consultasSQL::UpdateSQL("venta", "Estado='$estadoPedidonew'", "NumPedido='$numeroPedidoNew'"))
     {
+        session_start();
+        consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Venta','Actualizar'");
+
         echo '
         <br>
         <img class="center-all-contens" src="assets/img/Check.png">

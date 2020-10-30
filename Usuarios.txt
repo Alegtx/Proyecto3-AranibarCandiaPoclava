@@ -6,6 +6,9 @@ contraseña: admin
 usuario: Ketal
 contraseña: 102030
 
+usuario: Fidalga
+contraseña: 123456
+
 ---USUARIOS--
 ->
 usuario: alegtx

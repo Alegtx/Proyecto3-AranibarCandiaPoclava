@@ -22,7 +22,8 @@
             $verificaltotal = mysqli_num_rows($verificar);
             if($verificaltotal <= 0)
             {
-                if(consultasSQL::InsertSQL("cliente", "NIT, Usuario, Nombre, Apellidos, Clave, Direccion, Telefono, Email", "'$nitCliente','$usuarioCliente','$nombreCliente','$apeCliente','$passCliente', '$dirCliente','$phoneCliente','$emailCliente'")){
+                if(consultasSQL::InsertSQL("cliente", "NIT, Usuario, Nombre, Apellidos, Clave, Direccion, Telefono, Email", "'$nitCliente','$usuarioCliente','$nombreCliente','$apeCliente','$passCliente', '$dirCliente','$phoneCliente','$emailCliente'"))
+                {
                     echo '<img src="assets/img/ok.png" class="center-all-contens"><br>El registro se completo con éxito';
                 }
                 else

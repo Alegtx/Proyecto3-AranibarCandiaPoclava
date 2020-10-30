@@ -12,6 +12,8 @@
 	{
 	    if(consultasSQL::DeleteSQL('administrador', "Usuario='".$usuarioAdmin."'"))
 	    {
+        	consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Administrador','Eliminar'");
+
 	        echo '<img src="assets/img/correcto.png" class="center-all-contens"><br><p class="lead text-center">Administrador eliminado éxitosamente</p>';
 	    }
 	    else

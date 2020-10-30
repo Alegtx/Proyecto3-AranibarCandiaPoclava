@@ -1,6 +1,6 @@
 <?php
   $ancho = 100;
-  $alto = 30;
+  $alto = 20;
   $imagen = imageCreate($ancho, $alto);
   $amarillo = ImageColorAllocate($imagen, 255, 255, 0);
   ImageFill($imagen, 0, 0, $amarillo);

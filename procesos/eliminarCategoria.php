@@ -11,6 +11,8 @@
 	{
 	    if(consultasSQL::DeleteSQL('categoria', "CodigoCat='".$codCategoria."'"))
 	    {
+        	consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Categoria','Eliminar'");
+
 	        echo '<img src="assets/img/correcto.png" class="center-all-contens"><br><p class="lead text-center">Categoría eliminada éxitosamente</p>';
 	    }
 	    else

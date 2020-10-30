@@ -110,7 +110,7 @@
                                               </tr>
                                           </thead>
                                           <tbody>';
-                                                $registroc = ejecutarSQL::consultar("select * from registro order by Fecha");
+                                                $registroc = ejecutarSQL::consultar("select * from registro order by Fecha desc");
                                                 while($registro = mysqli_fetch_array($registroc)){
                                                   echo'
                                                     <div id="registros">
@@ -227,7 +227,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>';
-                                              $productos = ejecutarSQL::consultar("select * from producto order by CodigoProd");
+                                              $productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$_SESSION['nombreAdmin']."' order by CodigoProd");
                                               $upr=1;
                                               while($prod=mysqli_fetch_array($productos))
                                               {

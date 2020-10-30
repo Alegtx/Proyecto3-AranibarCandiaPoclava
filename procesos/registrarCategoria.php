@@ -14,7 +14,10 @@
         $verificalTotal = mysqli_num_rows($verificar);
         if($verificalTotal <= 0)
         {
-            if(consultasSQL::InsertSQL("categoria", "CodigoCat, Nombre, Descripcion", "'$codigoCategoria','$nombreCategoria','$descCategoria'")){
+            if(consultasSQL::InsertSQL("categoria", "CodigoCat, Nombre, Descripcion", "'$codigoCategoria','$nombreCategoria','$descCategoria'"))
+            {
+                consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Categoria','Registrar'");
+
                 echo '<img src="assets/img/correcto.png" class="center-all-contens"><br><p class="lead text-center">Categoría añadida éxitosamente</p>';
             }
             else

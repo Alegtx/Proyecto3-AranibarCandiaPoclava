@@ -11,6 +11,9 @@
 
     if(consultasSQL::UpdateSQL("categoria", "CodigoCat = '$codCategoriaNew', Nombre = '$nombreCategoriaNew', Descripcion = '$descCategoriaNew'", "CodigoCat = '$codCategoriaOld'"))
     {
+        session_start();
+        consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Categoria','Actualizar'");
+        
         echo '
         <br>
         <img class="center-all-contens" src="assets/img/Check.png">
