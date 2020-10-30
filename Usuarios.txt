@@ -1,0 +1,15 @@
+---ADMIN--
+
+usuario: admin
+contraseña: admin
+
+usuario: Ketal
+contraseña: 102030
+
+---USUARIOS--
+->
+usuario: alegtx
+contraseña: mayonesa12
+
+usuario: cheito
+contraseña: hola
