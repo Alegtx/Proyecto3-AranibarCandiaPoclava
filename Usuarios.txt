@@ -9,8 +9,11 @@ contraseña: 102030
 usuario: Fidalga
 contraseña: 123456
 
+usuario: Hipermaxi
+contraseña: hola
+
 ---USUARIOS--
-->
+
 usuario: alegtx
 contraseña: mayonesa12
 
