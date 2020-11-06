@@ -195,7 +195,7 @@
                                        <div class="form-group">
                                            <label>Productos</label>
                                            <select class="form-control" name="prod-cod">';
-                                                   $productoc = ejecutarSQL::consultar("select * from producto order by CodigoProd");
+                                                   $productoc = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$_SESSION['nombreAdmin']."' order by CodigoProd");
                                                    while($prodc = mysqli_fetch_array($productoc))
                                                    {
                                                        echo '<option value="'.$prodc['CodigoProd'].'">'.$prodc['CodigoProd'].' - '.$prodc['NombreProd'].' - '.$prodc['Marca'].'</option>';
