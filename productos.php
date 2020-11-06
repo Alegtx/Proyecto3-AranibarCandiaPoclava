@@ -81,7 +81,6 @@ include './conexion/consultaSQL.php';
                                                <a href="infoProducto.php?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                                <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                            </p>
-
                                          </div>
                                        </div>
                                    </div>     
@@ -116,15 +115,15 @@ include './conexion/consultaSQL.php';
                                                  <h3>'.$prod['NombreProd'].'</h3>
                                                  <p>'.$prod['Marca'].'</p>
                                                  <p>'.$prod['Precio'].' Bs.</p>
+                                                 <p><b>'.$prod['NombreAdmin'].'</b></p>
                                                  <p class="text-center">
                                                      <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                                      <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                                  </p>
-
                                                </div>
                                              </div>
                                          </div>     
-                                         ';    
+                                      ';    
                                    } 
                                 }
                                 else
@@ -155,15 +154,15 @@ include './conexion/consultaSQL.php';
                                                  <h3>'.$prod['NombreProd'].'</h3>
                                                  <p>'.$prod['Marca'].'</p>
                                                  <p>'.$prod['Precio'].' Bs.</p>
+                                                 <p><b>'.$prod['NombreAdmin'].'</b></p>
                                                  <p class="text-center">
                                                      <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                                      <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                                  </p>
-
                                                </div>
                                              </div>
                                          </div>     
-                                         ';    
+                                      ';    
                                    } 
                                 }
                                 else

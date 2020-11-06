@@ -26,7 +26,7 @@
                             <?php
                                 if(!$_SESSION['nombreUser']=="" &&!$_SESSION['claveUser']=="")
                                 {
-                                    $clientec =  ejecutarSQL::consultar("select * from venta, cliente where venta.NIT=cliente.NIT && cliente.Usuario='".$_SESSION['nombreUser']."'");
+                                    $clientec = ejecutarSQL::consultar("select * from venta, cliente where venta.NIT=cliente.NIT && cliente.Usuario='".$_SESSION['nombreUser']."'");
                                     while($cliente = mysqli_fetch_array($clientec))
                                     {
                                         $Estado = $cliente['Estado'];                                   
@@ -35,7 +35,7 @@
                                             break;                                                                                        
                                         }
                                     }
-                                    if($Estado = 'Pendiente')
+                                    if($Estado == 'Pendiente')
                                     {
                                         echo '
                                             <h2 class="text-center">¿Completaste tu pedido?</h2>
@@ -49,7 +49,7 @@
                                     {
                                         echo '
                                             <h2 class="text-center">¿Confirmar pedido?</h2>
-                                            <p class="text-center">Para confirmar tu pedido presiona el botón confirmar</p>
+                                            <p class="text-center">Para confirmar tu pedido presiona el botón confirmar tu pedido y proceder al pago</p>
                                             <br>
                                             <img class="img-responsive center-all-contens" src="assets/img/shopping-cart.png">
                                               <input type="hidden" name="clien-name" value="'.$_SESSION['nombreUser'].'">
