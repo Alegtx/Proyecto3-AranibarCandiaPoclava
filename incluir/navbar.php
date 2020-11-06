@@ -1,8 +1,9 @@
 <?php 
     session_start(); 
     error_reporting(E_PARSE);
-    if(!isset($_SESSION['contador'])){
+    if(!isset($_SESSION['contador']) && !isset($_SESSION['supermercado'])){
         $_SESSION['contador'] = 0;
+        $_SESSION['supermercado'] = "";
     }
 ?>
 <section id="container-carrito-compras">
@@ -173,13 +174,24 @@
         <div class="modal-content">
             <br>
             <p class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></p>
-            <p class="text-center">El producto se añadio al carrito</p>
+            <p class="text-center">
+                <?php 
+                    if($_SESSION['mensaje'] == "")
+                    {
+                        echo "El producto se añadio al carrito correctamente.";
+                    }
+                    else
+                    {
+                        echo $_SESSION['mensaje']; 
+                    }                
+                ?>
+                </p>
             <p class="text-center"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button></p>
           </div>
       </div>
     </div>
     <!-- ==================== Fin modal de carrito =============== -->
-    
+   
     <!-- ==================== Modal de logout =============== -->
     <div class="modal fade modal-logout" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="padding: 20px;">
       <div class="modal-dialog modal-sm">

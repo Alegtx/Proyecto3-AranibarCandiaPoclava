@@ -410,7 +410,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>';
-                                              $pedidoU=  ejecutarSQL::consultar("select * from venta");
+                                              $pedidoU = ejecutarSQL::consultar("select * from venta where NombreAdmin='".$_SESSION['nombreAdmin']."'");
                                               $upp=1;
                                               while($peU = mysqli_fetch_array($pedidoU))
                                               {

@@ -38,7 +38,9 @@ $(document).ready(function() {
                 }
             });
             return false;
-        }else{
+        }
+        else
+        {
             $.ajax({
                 type: type,
                 url: url,
