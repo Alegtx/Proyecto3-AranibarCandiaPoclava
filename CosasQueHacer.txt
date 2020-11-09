@@ -1,16 +1,30 @@
 <====== PENDIENTE ======>
+	
+	<=== Index ===>
+	-Mostrar todos los cupermercados en el index.
 
-	<=== Sistema en general ===>
-	- Hacer que el sistema puede admitir multiples supermercados
+	<=== Registro ===>
+	-Formulario de registro tipo wizard.
+	-Añadir boton de "ver password" en el formulario de registro.
+	-Apenas se registre el usuario debe iniciar sesion automaticamente.
+
+	<=== Productos ===>
+	-Capacidad de poder escribir el numero de items a comprar.
+
+	<=== Carrito ===>
+	-Capacidad de eliminar un producto del carrito.
 
 
 <====== COMPLETADO ======>
 	
 	<=== Login ===>
-	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login
+	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login.
 
 	<=== Parte administrativa ===>
-	- Juntar la parte de eliminar pedido con actualizar estado
+	- Juntar la parte de eliminar pedido con actualizar estado.
 
 	<=== Base de datos ===>
-	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha)
+	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha).
+
+	<=== Sistema en general ===>
+	- Hacer que el sistema puede admitir multiples supermercados.
