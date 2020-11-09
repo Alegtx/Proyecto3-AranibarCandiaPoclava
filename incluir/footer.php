@@ -4,7 +4,6 @@
         <a href="#" class="social-icon all-elements-tooltip" data-toggle="tooltip" data-placement="bottom" title="Facebook">
             <img src="assets/iconos/social-facebook.png" alt="facebook-icon">
         </a>
-        </a>
         <a href="#" class="social-icon all-elements-tooltip" data-toggle="tooltip" data-placement="bottom" title="Twitter">
             <img src="assets/iconos/social-twitter.png" alt="twitter-icon">
         </a>
