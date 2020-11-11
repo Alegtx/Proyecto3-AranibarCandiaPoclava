@@ -4,8 +4,6 @@
 	-Mostrar todos los cupermercados en el index.
 
 	<=== Registro ===>
-	-Formulario de registro tipo wizard.
-	-Añadir boton de "ver password" en el formulario de registro.
 	-Apenas se registre el usuario debe iniciar sesion automaticamente.
 
 	<=== Productos ===>
@@ -17,6 +15,10 @@
 
 <====== COMPLETADO ======>
 	
+	<=== Registro ===>
+	-Añadir boton de "ver password" en el formulario de registro.
+	-Formulario de registro tipo wizard.
+
 	<=== Login ===>
 	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login.
 

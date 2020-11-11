@@ -19,3 +19,6 @@ contraseña: mayonesa12
 
 usuario: cheito
 contraseña: hola
+
+usuario: Jasonex
+contraseña: 987654

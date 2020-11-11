@@ -7,7 +7,12 @@
 <link rel="stylesheet" href="css/media.css">
 <link rel="Shortcut Icon" type="image/x-icon" href="assets/iconos/logo.ico" />
 <script src="js/jquery.min.js"></script>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/jquery.bootstrap.wizard.js"></script>
+<script src="js/jquery.validate.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/gsdk-bootstrap-wizard.js"></script>
 <script src="js/autohidingnavbar.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/carrito.js"></script>
+<script src="js/mostrar-ocultar-contraseña.js"></script>

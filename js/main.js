@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $("#navbar-auto-hidden").autoHidingNavbar();
     $(".button-mobile-menu").click(function(){
         $("#mobile-menu-list").animate({width: 'toggle'},200);
@@ -7,10 +8,10 @@ $(document).ready(function() {
     
     
     $('#modal-form-login form').submit(function(e) {
-         e.preventDefault();
-         var informacion=$('#modal-form-login form').serialize();
-         var metodo=$('#modal-form-login form').attr('method');
-         var peticion=$('#modal-form-login form').attr('action');
+        e.preventDefault();
+        var informacion=$('#modal-form-login form').serialize();
+        var metodo=$('#modal-form-login form').attr('method');
+        var peticion=$('#modal-form-login form').attr('action');
          
     });
 
@@ -57,7 +58,5 @@ $(document).ready(function() {
             });
             return false;
         }
-
-        
     });
 });
