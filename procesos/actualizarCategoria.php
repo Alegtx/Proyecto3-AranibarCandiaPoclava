@@ -28,7 +28,7 @@
             $(location).attr("href",url);
             },5000);
         </script>
-     ';
+        ';
     }
     else
     {
