@@ -14,7 +14,7 @@
         {
             $_SESSION['nombreAdmin'] = $usuario;
             $_SESSION['claveAdmin'] = $clave;
-            echo '<script> location.href="index.php"; </script>';
+            echo '<script> location.href="index"; </script>';
         }
         else
         {
