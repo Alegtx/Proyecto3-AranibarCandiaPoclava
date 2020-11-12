@@ -6,6 +6,23 @@
         $_SESSION['supermercado'] = "";
     }
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        /*Funcion para mostrar u ocultar la contraseña en el login*/
+        $('#mostrar-ocultar-login').click(function(){
+            if($(this).hasClass('fa fa-eye'))
+            {
+                $('#password-login').removeAttr('type','text');
+                $('#mostrar-ocultar-login').addClass('fa-eye-slash').removeClass('fa-eye');
+            }
+            else
+            {
+                $('#password-login').attr('type','password');
+                $('#mostrar-ocultar-login').addClass('fa-eye').removeClass('fa-eye-slash');
+            }
+        });
+    });
+</script>
 <section id="container-carrito-compras">
     <div class="container">
         <div class="row">
@@ -120,23 +137,28 @@
       <div class="modal-dialog modal-sm">
           <div class="modal-content" id="modal-form-login">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title text-center text-primary" id="myModalLabel">Iniciar sesión en Shopon-line</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-center text-primary" id="myModalLabel">Iniciar sesión en Shopon-line</h4>
                 </div>
             <form action="procesos/login.php" method="post" role="form" style="margin: 20px;" class="FormCatElec" data-form="login">
-                  <div class="form-group">
-                      <label><span class="glyphicon glyphicon-user"></span>&nbsp;Usuario</label>
-                      <input type="text" class="form-control" name="usuario-login" placeholder="Escribe tu usuario" required=""/>
-                  </div>
-                  <div class="form-group">
-                      <label><span class="glyphicon glyphicon-lock"></span>&nbsp;Contraseña</label>
-                      <input type="password" class="form-control" name="clave-login" placeholder="Escribe tu contraseña" required=""/>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary btn-sm">Iniciar sesión</button>
-                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-                  </div>
-                  <div class="ResFormL" style="width: 100%; text-align: center; margin: 0;"></div>
+                    <div class="form-group">
+                        <label><span class="glyphicon glyphicon-user"></span>&nbsp;Usuario</label>
+                        <input type="text" class="form-control" name="usuario-login" placeholder="Escribe tu usuario" required=""/>
+                    </div>
+                    <div class="form-group">
+                        <label><span class="glyphicon glyphicon-lock"></span>&nbsp;Contraseña</label>
+                        <div class="input-group">
+                            <input id="password-login" type="password" class="form-control" name="clave-login" placeholder="Escribe tu contraseña" required=""/>
+                            <div class="input-group-addon">
+                                <span id="mostrar-ocultar-login" style="cursor:pointer;" class="fa fa-eye"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">Iniciar sesión</button>
+                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
+                    </div>
+                    <div class="ResFormL" style="width: 100%; text-align: center; margin: 0;"></div>
               </form>
           </div>
       </div>
@@ -174,18 +196,7 @@
         <div class="modal-content">
             <br>
             <p class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></p>
-            <p class="text-center">
-                <?php 
-                    if($_SESSION['mensaje'] == "")
-                    {
-                        echo "El producto se añadio al carrito correctamente.";
-                    }
-                    else
-                    {
-                        echo $_SESSION['mensaje']; 
-                    }                
-                ?>
-                </p>
+            <p class="text-center">El producto se añadio al carrito correctamente.</p>
             <p class="text-center"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button></p>
           </div>
       </div>

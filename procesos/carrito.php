@@ -36,13 +36,13 @@
 	    	{
 	    		echo "<tr><td>".$fila['NombreProd']."</td><td> ".$fila['Precio']."</td></tr>";
 	    		$suma += $fila['Precio'];
-	    		$_SESSION['mensaje'] = "El producto se añadio al carrito correctamente.";
+	    		//$_SESSION['mensaje'] = "El producto se añadio al carrito correctamente.";
 	    	}
 	        else
 	        {
 	        	$_SESSION['contador']--;
-	        	$_SESSION['mensaje'] = "Todos los productos deben ser del mismo supermercado.";
-	        	//echo "Todos los productos deben ser del mismo supermercado.";
+	        	//$_SESSION['mensaje'] = "Todos los productos deben ser del mismo supermercado.";
+	        	echo "Todos los productos deben ser del mismo supermercado.";
 	        }
 	    }
 	}

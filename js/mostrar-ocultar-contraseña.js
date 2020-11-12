@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    /*Funcion para mostrar u ocultar la contraseña*/
+    /*Funcion para mostrar u ocultar la contraseña en el registro*/
     $('#mostrar-ocultar').click(function(){
         if($(this).hasClass('fa fa-eye'))
         {
