@@ -27,7 +27,7 @@
         </p>
         <script>
             setTimeout(function(){
-            url ="configAdmin.php";
+            url ="configAdmin";
             $(location).attr("href",url);
             },5000);
         </script>
