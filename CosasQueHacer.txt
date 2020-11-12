@@ -1,10 +1,7 @@
 <====== PENDIENTE ======>
 	
 	<=== Index ===>
-	-Mostrar todos los cupermercados en el index.
-
-	<=== Registro ===>
-	-Apenas se registre el usuario debe iniciar sesion automaticamente.
+	-Mostrar todos los supermercados en el index.
 
 	<=== Productos ===>
 	-Capacidad de poder escribir el numero de items a comprar.
@@ -18,6 +15,7 @@
 	<=== Registro ===>
 	-Añadir boton de "ver password" en el formulario de registro.
 	-Formulario de registro tipo wizard.
+	-Apenas se registre el usuario debe iniciar sesion automaticamente.
 
 	<=== Login ===>
 	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login.

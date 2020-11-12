@@ -25,6 +25,18 @@
                 if(consultasSQL::InsertSQL("cliente", "NIT, Usuario, Nombre, Apellidos, Clave, Direccion, Telefono, Email", "'$nitCliente','$usuarioCliente','$nombreCliente','$apeCliente','$passCliente', '$dirCliente','$phoneCliente','$emailCliente'"))
                 {
                     echo '<img src="assets/img/ok.png" class="center-all-contens"><br>El registro se completo con éxito';
+                    $_SESSION['nombreUser'] = $usuarioCliente;
+                    $_SESSION['claveUser'] = $passCliente;
+                    echo '
+                        <br>
+                        <p><strong>Se le va a redirigir automaticamente.</strong></p>
+                        <script>
+                            setTimeout(function(){
+                            url ="index";
+                            $(location).attr("href",url);
+                            },3000);
+                        </script>
+                    ';
                 }
                 else
                 {
