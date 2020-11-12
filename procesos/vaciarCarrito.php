@@ -6,5 +6,5 @@
 	unset($_SESSION['supermercado']);
 ?>
 <script>
-    window.location = "../index.php";
+    window.location = "../index";
 </script>

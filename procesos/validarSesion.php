@@ -7,7 +7,7 @@
 	}
 	else
 	{
-	    header("Location: index.php");
+	    header("Location: index");
 	    exit();
 	}
 ?>

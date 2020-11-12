@@ -50,14 +50,14 @@
             <div class="col-xs-9">
                 <div class="contenedor-tabla pull-right">
                     <div class="contenedor-tr">
-                        <a href="index.php" class="table-cell-td">Inicio</a>
-                        <a href="productos.php" class="table-cell-td">Productos</a>
+                        <a href="index" class="table-cell-td">Inicio</a>
+                        <a href="productos" class="table-cell-td">Productos</a>
                         <?php
                             if(!$_SESSION['nombreAdmin'] == "")
                             {
                                 echo ' 
-                                    <a href="nosotros.php" class="table-cell-td">Nosotros</a>
-                                    <a href="configAdmin.php" class="table-cell-td">Administración</a>
+                                    <a href="nosotros" class="table-cell-td">Nosotros</a>
+                                    <a href="configAdmin" class="table-cell-td">Administración</a>
                                     <a href="#" class="table-cell-td carrito-button-nav all-elements-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ver carrito de compras">
                                         <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                                     </a>
@@ -69,8 +69,8 @@
                             else if(!$_SESSION['nombreUser'] == "")
                             {
                                 echo ' 
-                                    <a href="nosotros.php" class="table-cell-td">Nosotros</a>
-                                    <a href="pedido.php" class="table-cell-td">Pedido</a>
+                                    <a href="nosotros" class="table-cell-td">Nosotros</a>
+                                    <a href="pedido" class="table-cell-td">Pedido</a>
                                     <a href="#" class="table-cell-td carrito-button-nav all-elements-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ver carrito de compras">
                                         <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                                     </a>
@@ -81,8 +81,8 @@
                             else
                             {
                                 echo ' 
-                                    <a href="nosotros.php" class="table-cell-td">Nosotros</a>
-                                    <a href="registro.php" class="table-cell-td">Registro</a>
+                                    <a href="nosotros" class="table-cell-td">Nosotros</a>
+                                    <a href="registro" class="table-cell-td">Registro</a>
                                     <a href="#" class="table-cell-td carrito-button-nav all-elements-tooltip" data-toggle="tooltip" data-placement="bottom" title="Ver carrito de compras">
                                         <i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
                                     </a>
