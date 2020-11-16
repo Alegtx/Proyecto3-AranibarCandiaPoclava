@@ -28,10 +28,9 @@
                         echo '
                           <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                              <b><h3>'.$fila['Usuario'].'</h3></b>
+                              <h3><b><p class="text-center">'.$fila['Usuario'].'</p></b></h3> 
                               <img src="assets/img-supermercados/'.$fila['Imagen'].'">
                               <div class="caption">
-                                
                               </div>
                             </div>
                           </div>     
