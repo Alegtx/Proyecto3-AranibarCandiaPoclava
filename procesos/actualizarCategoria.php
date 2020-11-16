@@ -15,19 +15,19 @@
         consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Categoria','Actualizar'");
         
         echo '
-        <br>
-        <img class="center-all-contens" src="assets/img/Check.png">
-        <p><strong>Hecho</strong></p>
-        <p class="text-center">
-            Recargando<br>
-            en 5 segundos
-        </p>
-        <script>
-            setTimeout(function(){
-            url ="configAdmin";
-            $(location).attr("href",url);
-            },5000);
-        </script>
+            <br>
+            <img class="center-all-contens" src="assets/img/Check.png">
+            <p><strong>Hecho</strong></p>
+            <p class="text-center">
+                Recargando<br>
+                en 5 segundos
+            </p>
+            <script>
+                setTimeout(function(){
+                url ="configAdmin";
+                $(location).attr("href",url);
+                },5000);
+            </script>
         ';
     }
     else
