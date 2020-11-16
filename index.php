@@ -15,35 +15,32 @@
     <section id="new-prod-index">
          <div class="container">
             <div class="page-header">
-                <h1>Novedades <small>productos</small></h1>
+                <h1>Supermercados <small>afiliados</small></h1>
             </div>
             <div class="row">
               <?php
                   include 'conexion/configServer.php';
                   include 'conexion/consultaSQL.php';
-                  $consulta= ejecutarSQL::consultar("select * from producto where Stock > 0 limit 6");
-                  $totalproductos = mysqli_num_rows($consulta);
-                  if($totalproductos>0){
+                  $consulta= ejecutarSQL::consultar("select * from administrador where Usuario != 'admin'");
+                  $admins = mysqli_num_rows($consulta);
+                  if($admins>0){
                       while($fila=mysqli_fetch_array($consulta)){
-                         echo '
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                             <div class="thumbnail">
-                               <img src="assets/img-productos/'.$fila['Imagen'].'">
-                               <div class="caption">
-                                 <h3>'.$fila['NombreProd'].'</h3>
-                                 <p>'.$fila['Marca'].'</p>
-                                 <p>$'.$fila['Precio'].'</p>
-                                 <p class="text-center">
-                                     <a href="infoProducto.php?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                     <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
-                                 </p>
-                               </div>
-                             </div>
-                         </div>     
-                         ';
+                        echo '
+                          <div class="col-xs-12 col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                              <b><h3>'.$fila['Usuario'].'</h3></b>
+                              <img src="assets/img-supermercados/'.$fila['Imagen'].'">
+                              <div class="caption">
+                                
+                              </div>
+                            </div>
+                          </div>     
+                        ';
                      }   
-                  }else{
-                      echo '<h2>No hay productos registrados en la tienda o nos quedamos sin stock.</h2>';
+                  }
+                  else
+                  {
+                    echo '<h2>No hay productos supermecados registrados en la tienda.</h2>';
                   }  
               ?>  
             </div>
