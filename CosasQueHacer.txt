@@ -1,17 +1,19 @@
 <====== PENDIENTE ======>
-	
+
+	<=== Parte administrativa ===>
+	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
+
+<====== COMPLETADO ======>
+
 	<=== Index ===>
 	-Mostrar todos los supermercados en el index.
-
-	<=== Productos ===>
-	-Capacidad de poder escribir el numero de items a comprar.
 
 	<=== Carrito ===>
 	-Capacidad de eliminar un producto del carrito.
 
+	<=== Productos ===>
+	-Capacidad de poder escribir el numero de items a comprar.
 
-<====== COMPLETADO ======>
-	
 	<=== Registro ===>
 	-Añadir boton de "ver password" en el formulario de registro.
 	-Formulario de registro tipo wizard.
@@ -19,6 +21,7 @@
 
 	<=== Login ===>
 	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login.
+	-Añadir boton de "ver password" en el modal de login.
 
 	<=== Parte administrativa ===>
 	- Juntar la parte de eliminar pedido con actualizar estado.
