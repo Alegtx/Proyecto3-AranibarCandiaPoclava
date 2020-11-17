@@ -29,6 +29,14 @@ include './conexion/consultaSQL.php';
                                 <h4><strong>Precio: </strong>'.$fila['Precio'].'</h4>
                                 <h4><strong>Stock: </strong>'.$fila['Stock'].'</h4>
                                 <h4><strong>Supermercado: </strong>'.$fila['NombreAdmin'].'</h4>
+                                <h4>
+                                    <strong>Cantidad a comprar: </strong>
+                                    <div class="number-input">
+                                        <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
+                                        <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                        <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
+                                    </div>
+                                </h4>
                             </div>
                             <div class="col-xs-12 col-sm-6">
                                 <br><br><br>
@@ -36,7 +44,7 @@ include './conexion/consultaSQL.php';
                             </div>
                             <br><br><br>
                             <div class="col-xs-12 text-center">
-                                <a href="productos.php" class="btn btn-lg btn-primary"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a la tienda</a> &nbsp;&nbsp;&nbsp; 
+                                <a href="productos" class="btn btn-lg btn-primary"><i class="fa fa-mail-reply"></i>&nbsp;&nbsp;Regresar a la tienda</a> &nbsp;&nbsp;&nbsp; 
                                 <button value="'.$fila['CodigoProd'].'" class="btn btn-lg btn-success botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp; Añadir al carrito</button>
                             </div>
                         ';
