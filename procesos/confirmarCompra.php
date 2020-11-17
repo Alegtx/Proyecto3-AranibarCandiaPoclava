@@ -1,5 +1,12 @@
 <?php
+  /*
+    Diesño de la matriz: 
+    $_SESSION["productos"][X][0] = CodigoProducto
+    $_SESSION["productos"][X][1] = Precio
+    $_SESSION["productos"][X][2] = Cantidad
+  */
   session_start(); 
+  error_reporting(E_PARSE);
   include '../conexion/configServer.php';
   include '../conexion/consultaSQL.php';
   $num = $_POST['clien-number'];
@@ -21,35 +28,37 @@
   {
     if($_SESSION['sumaTotal'] > 0)
     {
-
       $data= mysqli_fetch_array($verdata);
       $nitC=$data['NIT'];
       $StatusV="Pendiente";
       
-      /*Insertando datos en tabla venta*/
+      //Insertando datos en tabla venta
       consultasSQL::InsertSQL("venta", "Fecha, NIT, Descuento, TotalPagar, Estado, NombreAdmin", "'".date('d-m-Y')."','".$nitC."','0','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."'");
       
-      /*recuperando el número del pedido actual*/
+      //Recuperando el número del pedido actual
       $verId=ejecutarSQL::consultar("select * from venta where NIT='$nitC' order by NumPedido desc limit 1");
       while($fila=mysqli_fetch_array($verId))
       {
          $Numpedido=$fila['NumPedido'];
       }
-      /*Insertando datos en detalle de la venta*/
+      //Insertando datos en detalle de la venta
       for($i = 0;$i < $_SESSION['contador'];$i++)
       {
-        consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos", "'$Numpedido', '".$_SESSION['producto'][$i]."', '1'");
-
-        /*Restando un stock a cada producto seleccionado en el carrito*/
-        $prodStock=ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION['producto'][$i]."'");
-        while($fila = mysqli_fetch_array($prodStock))
+        if($_SESSION['productos'][$i+1][0] != "")
         {
-            $existencias = $fila['Stock'];
-            consultasSQL::UpdateSQL("producto", "Stock=('$existencias'-1)", "CodigoProd='".$_SESSION['producto'][$i]."'");
-        }
+          consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos", "'$Numpedido', '".$_SESSION['productos'][$i+1][0]."', '".$_SESSION['productos'][$i+1][2]."'");
+
+          //Restando un stock a cada producto seleccionado en el carrito
+          $prodStock=ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
+          while($fila = mysqli_fetch_array($prodStock))
+          {
+              $existencias = $fila['Stock'];
+              consultasSQL::UpdateSQL("producto", "Stock=('$existencias'-".$_SESSION['productos'][$i+1][2].")", "CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
+          }
+        }   
       }
       /*Vaciando el carrito*/
-      unset($_SESSION['producto']);
+      unset($_SESSION['productos']);
       unset($_SESSION['contador']);
       unset($_SESSION['supermercado']);
       

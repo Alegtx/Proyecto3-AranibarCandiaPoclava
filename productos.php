@@ -68,23 +68,30 @@ include './conexion/consultaSQL.php';
                             {
                                 while($fila = mysqli_fetch_array($consulta))
                                 {
-                                   echo '
-                                  <div class="col-xs-12 col-sm-6 col-md-4">
-                                       <div class="thumbnail">
-                                         <img src="assets/img-productos/'.$fila['Imagen'].'">
-                                         <div class="caption">
-                                           <h3>'.$fila['NombreProd'].'</h3>
-                                           <p>'.$fila['Marca'].'</p>
-                                           <p>'.$fila['Precio'].' Bs.</p>
-                                           <p><b>'.$fila['NombreAdmin'].'</b></p>
-                                           <p class="text-center">
-                                               <a href="infoProducto.php?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                               <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
-                                           </p>
-                                         </div>
-                                       </div>
-                                   </div>     
-                                   ';
+                                  echo '
+                                        <div class="col-xs-12 col-sm-6 col-md-4">
+                                          <div class="thumbnail">
+                                            <img width="300p" height="300p" src="assets/img-productos/'.$fila['Imagen'].'">
+                                            <div class="caption">
+                                              <h3>'.$fila['NombreProd'].'</h3>
+                                              <p>'.$fila['Marca'].'</p>
+                                              <p>'.$fila['Precio'].' Bs.</p>
+                                              <p><b>'.$fila['NombreAdmin'].'</b></p>
+                                              <p>
+                                                <div class="number-input">
+                                                  <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
+                                                  <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                                  <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
+                                                </div>
+                                              </p>
+                                              <p class="text-center">
+                                                <a href="infoProducto?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
+                                                <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>     
+                                      ';
                                }   
                             }
                             else
@@ -108,22 +115,29 @@ include './conexion/consultaSQL.php';
                                 {
                                    while($prod = mysqli_fetch_array($consultar_productos)){
                                       echo '
-                                        <div class="col-xs-12 col-sm-6 col-md-4">
-                                             <div class="thumbnail">
-                                               <img src="assets/img-productos/'.$prod['Imagen'].'">
-                                               <div class="caption">
-                                                 <h3>'.$prod['NombreProd'].'</h3>
-                                                 <p>'.$prod['Marca'].'</p>
-                                                 <p>'.$prod['Precio'].' Bs.</p>
-                                                 <p><b>'.$prod['NombreAdmin'].'</b></p>
-                                                 <p class="text-center">
-                                                     <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                                     <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
-                                                 </p>
-                                               </div>
-                                             </div>
-                                         </div>     
-                                      ';    
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                              <div class="thumbnail">
+                                                <img src="assets/img-productos/'.$prod['Imagen'].'">
+                                                <div class="caption">
+                                                  <h3>'.$prod['NombreProd'].'</h3>
+                                                  <p>'.$prod['Marca'].'</p>
+                                                  <p>'.$prod['Precio'].' Bs.</p>
+                                                  <p><b>'.$prod['NombreAdmin'].'</b></p>
+                                                  <p>
+                                                    <div class="number-input">
+                                                      <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
+                                                      <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                                      <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
+                                                    </div>
+                                                  </p>
+                                                  <p class="text-center">
+                                                      <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
+                                                      <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>     
+                                          ';    
                                    } 
                                 }
                                 else
@@ -147,22 +161,29 @@ include './conexion/consultaSQL.php';
                                 {
                                    while($prod = mysqli_fetch_array($consultar_productos)){
                                       echo '
-                                        <div class="col-xs-12 col-sm-6 col-md-4">
-                                             <div class="thumbnail">
-                                               <img src="assets/img-productos/'.$prod['Imagen'].'">
-                                               <div class="caption">
-                                                 <h3>'.$prod['NombreProd'].'</h3>
-                                                 <p>'.$prod['Marca'].'</p>
-                                                 <p>'.$prod['Precio'].' Bs.</p>
-                                                 <p><b>'.$prod['NombreAdmin'].'</b></p>
-                                                 <p class="text-center">
-                                                     <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                                     <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
-                                                 </p>
-                                               </div>
-                                             </div>
-                                         </div>     
-                                      ';    
+                                            <div class="col-xs-12 col-sm-6 col-md-4">
+                                              <div class="thumbnail">
+                                                <img src="assets/img-productos/'.$prod['Imagen'].'">
+                                                <div class="caption">
+                                                  <h3>'.$prod['NombreProd'].'</h3>
+                                                  <p>'.$prod['Marca'].'</p>
+                                                  <p>'.$prod['Precio'].' Bs.</p>
+                                                  <p><b>'.$prod['NombreAdmin'].'</b></p>
+                                                  <p>
+                                                    <div class="number-input">
+                                                      <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
+                                                      <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                                      <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
+                                                    </div>
+                                                  </p>
+                                                  <p class="text-center">
+                                                    <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
+                                                    <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>     
+                                          ';    
                                    } 
                                 }
                                 else
