@@ -4,12 +4,12 @@
     include '../conexion/consultaSQL.php';
 
     sleep(5);
-    $usuarioAdmin= $_POST['admin-user'];
-    $passAdmin= md5($_POST['admin-pass']);
+    $usuarioAdmin = $_POST['admin-user'];
+    $passAdmin = md5($_POST['admin-pass']);
 
-    if(!$usuarioAdmin=="" && !$passAdmin=="")
+    if(!$usuarioAdmin == "" && !$passAdmin == "")
     {
-        $verificar=  ejecutarSQL::consultar("select * from administrador where Usuario='".$usuarioAdmin."'");
+        $verificar = ejecutarSQL::consultar("select * from administrador where Usuario='".$usuarioAdmin."'");
         $verificalTotal = mysqli_num_rows($verificar);
         if($verificalTotal <= 0)
         {
@@ -23,7 +23,9 @@
             {
                echo '<img src="assets/img/incorrecto.png" class="center-all-contens"><br><p class="lead text-center">Ha ocurrido un error.<br>Por favor intente nuevamente</p>'; 
             }
-        }else{
+        }
+        else
+        {
             echo '<img src="assets/img/incorrecto.png" class="center-all-contens"><br><p class="lead text-center">El nombre que ha ingresado ya existe.<br>Por favor ingrese otro nombre</p>';
         }
     }

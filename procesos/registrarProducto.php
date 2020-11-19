@@ -45,7 +45,7 @@
                                         {
                                             consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Producto','Registrar'");
 
-                                           echo '
+                                            echo '
                                                 <img src="../assets/img/correctofull.png" class="center-all-contens">
                                                 <br>
                                                 <h3>El producto se añadio a la tienda con éxito</h3>
@@ -59,24 +59,24 @@
                                                     $(location).attr("href",url);
                                                     },5000);
                                                 </script>
-                                                ';
+                                            ';
                                        }
                                        else
                                        {
-                                          echo '
-                                            <img src="../assets/img/incorrectofull.png" class="center-all-contens">
-                                            <br>
-                                            <h3>Ha ocurrido un error. Por favor intente nuevamente</h3>
-                                            <p class="lead text-cente">
-                                                La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                                <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
-                                            </p>
-                                            <script>
-                                                setTimeout(function(){
-                                                url ="../configAdmin.php";
-                                                $(location).attr("href",url);
-                                                },5000);
-                                            </script>
+                                            echo '
+                                                <img src="../assets/img/incorrectofull.png" class="center-all-contens">
+                                                <br>
+                                                <h3>Ha ocurrido un error. Por favor intente nuevamente</h3>
+                                                <p class="lead text-cente">
+                                                    La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
+                                                    <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                                </p>
+                                                <script>
+                                                    setTimeout(function(){
+                                                    url ="../configAdmin.php";
+                                                    $(location).attr("href",url);
+                                                    },5000);
+                                                </script>    
                                             ';
                                        }   
                                     }
@@ -96,7 +96,7 @@
                                                 $(location).attr("href",url);
                                                 },5000);
                                             </script>
-                                             ';
+                                        ';
                                     }
                                 }
                                 else
@@ -115,7 +115,7 @@
                                             $(location).attr("href",url);
                                             },5000);
                                         </script>
-                                        ';
+                                    ';
                                 }
                             }
                             else
@@ -134,12 +134,12 @@
                                         $(location).attr("href",url);
                                         },5000);
                                     </script>
-                                    ';
+                                ';
                             }
                         ?>
                     </div>
+                </div>
             </div>
-        </div>
-    </section>
-</body>
+        </section>
+    </body>
 </html>

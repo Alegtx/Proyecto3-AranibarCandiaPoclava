@@ -10,7 +10,7 @@
 	include '../conexion/consultaSQL.php';
 	session_start();
 	$suma = 0;
-	$Existe=false;
+	$Existe = false;
 	if(isset($_GET['CodProd']) && isset($_GET['Cantidad']))
 	{
 	    $_SESSION['contador']++;
@@ -18,7 +18,7 @@
 	    $consulta = ejecutarSQL::consultar("select * from producto where CodigoProd='".$_GET['CodProd']."'");
 		while($fila = mysqli_fetch_array($consulta)) 
 	    {
-	       $Precio = $fila['Precio']*$_GET['Cantidad'];
+	       $Precio = $fila['Precio'] * $_GET['Cantidad'];
 	    }
 
 	    /*Recorrer a matriz*/
@@ -95,10 +95,10 @@
 	    }
 	}
 	echo "
-			<tr>
-				<td>Subtotal</td>
-				<td>".number_format($suma, 2)." Bs.</td>
-			</tr>
+		<tr>
+			<td>Subtotal</td>
+			<td>".number_format($suma, 2)." Bs.</td>
+		</tr>
 		";
 	echo "</table>";
 	$_SESSION['sumaTotal'] = $suma;

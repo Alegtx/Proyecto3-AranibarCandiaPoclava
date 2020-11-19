@@ -4,9 +4,9 @@
     include '../conexion/consultaSQL.php';
 
     sleep(5);
-    $codigoCategoria= $_POST['categ-cod'];
-    $nombreCategoria= $_POST['categ-nombre'];
-    $descCategoria= $_POST['categ-desc'];
+    $codigoCategoria = $_POST['categ-cod'];
+    $nombreCategoria = $_POST['categ-nombre'];
+    $descCategoria = $_POST['categ-desc'];
 
     if(!$codigoCategoria == "" && !$nombreCategoria == "" && !$descCategoria == "")
     {

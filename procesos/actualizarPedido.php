@@ -4,9 +4,8 @@
 
     sleep(5);
 
-    $numeroPedidoNew=$_POST['num-pedido'];
-    $estadoPedidonew=$_POST['pedido-status'];
-
+    $numeroPedidoNew = $_POST['num-pedido'];
+    $estadoPedidonew = $_POST['pedido-status'];
 
     if(consultasSQL::UpdateSQL("venta", "Estado='$estadoPedidonew'", "NumPedido='$numeroPedidoNew'"))
     {
@@ -28,7 +27,9 @@
             },5000);
         </script>
      ';
-    }else{
+    }
+    else
+    {
         echo '
         <br>
         <img class="center-all-contens" src="assets/img/cancel.png">

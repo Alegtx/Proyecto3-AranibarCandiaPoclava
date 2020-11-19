@@ -4,11 +4,11 @@
 	include '../conexion/consultaSQL.php';
 
 	sleep(5);
-	$usuarioAdmin= $_POST['name-admin'];
-	$consA=  ejecutarSQL::consultar("select * from administrador where Usuario='$usuarioAdmin'");
+	$usuarioAdmin = $_POST['name-admin'];
+	$consA =  ejecutarSQL::consultar("select * from administrador where Usuario='$usuarioAdmin'");
 	$totalA = mysqli_num_rows($consA);
 
-	if($totalA>0)
+	if($totalA > 0)
 	{
 	    if(consultasSQL::DeleteSQL('administrador', "Usuario='".$usuarioAdmin."'"))
 	    {
