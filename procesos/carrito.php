@@ -97,7 +97,7 @@
 	echo "
 			<tr>
 				<td>Subtotal</td>
-				<td>".number_format($suma,2)." Bs.</td>
+				<td>".number_format($suma, 2)." Bs.</td>
 			</tr>
 		";
 	echo "</table>";

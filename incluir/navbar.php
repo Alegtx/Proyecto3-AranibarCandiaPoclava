@@ -8,7 +8,7 @@
 ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        /*Funcion para mostrar u ocultar la contraseña en el login*/
+        //Funcion para mostrar u ocultar la contraseña en el login
         $('#mostrar-ocultar-login').click(function(){
             if($(this).hasClass('fa fa-eye'))
             {
@@ -41,7 +41,7 @@
         </div>
     </div>
 </section>
-<nav id="navbar-auto-hidden">
+    <nav id="navbar-auto-hidden">
         <div class="row hidden-xs">
             <div class="col-xs-3">
                 <figure class="logo-navbar"></figure>
@@ -96,8 +96,8 @@
                 </div>
             </div>
         </div>
+        <!-- ==================== Navbar celular =============== -->
         <div class="row visible-xs">
-            <!-- Mobile menu navbar -->
             <div class="col-xs-12">
                 <button class="btn btn-default pull-left button-mobile-menu" id="btn-mobile-menu">
                     <i class="fa fa-th-list"></i>&nbsp;&nbsp;Menú
@@ -131,6 +131,7 @@
                 ?>
             </div>
         </div>
+        <!-- ==================== Fin navbar celular =============== -->
     </nav>
     <!-- ==================== Modal de login =============== -->
     <div class="modal fade modal-login" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -164,6 +165,8 @@
       </div>
     </div>
     <!-- ==================== Fin modal de login =============== -->
+
+    <!-- ==================== Menu celuar =============== -->
     <div id="mobile-menu-list" class="hidden-sm hidden-md hidden-lg">
         <br>
         <h3 class="text-center tittles-pages-logo">Shopon-line</h3>
@@ -172,24 +175,26 @@
         </button>
         <br><br>
         <ul class="list-unstyled text-center">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="productos.php">Productos</a></li>
+            <li><a href="indexp">Inicio</a></li>
+            <li><a href="productos">Productos</a></li>
             <?php 
                 if(!$_SESSION['nombreAdmin'] == "")
                 {
-                    echo '<li><a href="configAdmin.php">Administración</a></li>';
+                    echo '<li><a href="configAdmin">Administración</a></li>';
                 }
                 elseif(!$_SESSION['nombreUser'] == "")
                 {
-                    echo '<li><a href="pedido.php">Pedido</a></li>';
+                    echo '<li><a href="pedido">Pedido</a></li>';
                 }
                 else
                 {
-                    echo '<li><a href="registro.php">Registro</a></li>';
+                    echo '<li><a href="registro">Registro</a></li>';
                 }
             ?>
         </ul>
     </div>
+    <!-- ==================== Fin menu celular =============== -->
+
     <!-- ==================== Modal de carrito =============== -->
     <div class="modal fade modal-carrito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="padding: 20px;">
       <div class="modal-dialog modal-sm">
@@ -198,7 +203,7 @@
             <p class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></p>
             <p class="text-center">El producto se añadio al carrito correctamente.</p>
             <p class="text-center"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button></p>
-          </div>
+        </div>
       </div>
     </div>
     <!-- ==================== Fin modal de carrito =============== -->
@@ -214,7 +219,7 @@
                 <a href="procesos/logout.php" class="btn btn-primary btn-sm">Cerrar la sesión</a>
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
             </p>
-          </div>
+        </div>
       </div>
     </div>
     <!-- ==================== Fin modal de logout =============== -->
