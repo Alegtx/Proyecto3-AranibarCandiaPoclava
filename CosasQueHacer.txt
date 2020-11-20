@@ -2,6 +2,7 @@
 
 	<=== Parte administrativa ===>
 	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
+	- Boton para mostrar los detalles del pedido en la pestaña de pedidos.
 
 <====== COMPLETADO ======>
 
@@ -10,6 +11,7 @@
 
 	<=== Carrito ===>
 	-Capacidad de eliminar un producto del carrito.
+	-Que el mensaje del modal cambien dependiendo si el supermercado es correcto o no.
 
 	<=== Productos ===>
 	-Capacidad de poder escribir el numero de items a comprar.
