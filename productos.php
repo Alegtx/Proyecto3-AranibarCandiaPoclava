@@ -84,6 +84,7 @@
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                     </div>
                                   </p>
+                                  <input type="hidden" id="modal-'.$fila['CodigoProd'].'" value="'.$fila['NombreAdmin'].'">
                                   <p class="text-center">
                                     <a href="infoProducto?CodigoProd='.$fila['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                     <button value="'.$fila['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
@@ -131,6 +132,7 @@
                                   <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                 </div>
                               </p>
+                              <input type="hidden" id="categoria-modal-'.$prod['CodigoProd'].'" value="'.$prod['NombreAdmin'].'">
                               <p class="text-center">
                                   <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                   <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarritoCategoria"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
@@ -177,6 +179,7 @@
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                     </div>
                                   </p>
+                                  <input type="hidden" id="supermercado-modal-'.$prod['CodigoProd'].'" value="'.$prod['NombreAdmin'].'">
                                   <p class="text-center">
                                     <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
                                     <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarritoSupermercado"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>

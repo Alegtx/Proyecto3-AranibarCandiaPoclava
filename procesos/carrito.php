@@ -60,6 +60,9 @@
 	else
 	{
 		echo "Supermercado: ".$_SESSION['supermercado']."<br><br>";
+		$supermercado = $_SESSION['supermercado'];
+		//Cookie de supernercado de 1 hora
+		setcookie('Supermercado', $supermercado, time() + 3600, "/"); 
 	}
 	
 	//Imprimir la matriz
@@ -91,7 +94,7 @@
 	        {
 	        	$_SESSION['contador']--;
 	        	//$_SESSION['mensaje'] = "Todos los productos deben ser del mismo supermercado.";
-	        	echo "Todos los productos deben ser del mismo supermercado.";
+	        	//echo "Todos los productos deben ser del mismo supermercado.";
 	        }
 	    }
 	}

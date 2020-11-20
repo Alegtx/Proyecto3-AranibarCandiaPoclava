@@ -201,7 +201,7 @@
         <div class="modal-content">
             <br>
             <p class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></p>
-            <p class="text-center">El producto se añadio al carrito correctamente.</p>
+            <h5 class="text-center"><p>El producto se añadio al carrito correctamente.</p></h5>
             <p class="text-center"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button></p>
         </div>
       </div>
