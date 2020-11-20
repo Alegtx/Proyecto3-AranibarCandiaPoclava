@@ -80,7 +80,7 @@
                                   <p>
                                     <div class="number-input">
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
-                                      <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                      <input min="1" max="'.$fila['Stock'].'" id="stock-'.$fila['CodigoProd'].'" value="1" type="number" readonly>
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                     </div>
                                   </p>
@@ -95,7 +95,7 @@
                       }
                       else
                       {
-                          echo '<h2>No hay productos en esta categoria</h2>';
+                          echo '<h2>No hay productos para mostrar.</h2>';
                       }  
                   ?>
                 </div>
@@ -127,13 +127,13 @@
                               <p>
                                 <div class="number-input">
                                   <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
-                                  <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                  <input min="1" max="'.$prod['Stock'].'" id="categoria-stock-'.$prod['CodigoProd'].'" value="1" type="number" readonly>
                                   <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                 </div>
                               </p>
                               <p class="text-center">
                                   <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                  <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
+                                  <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarritoCategoria"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                               </p>
                             </div>
                           </div>
@@ -142,14 +142,14 @@
                   }
                   else
                   {
-                     echo '<h2>No hay productos en esta categoría</h2>'; 
+                    echo '<h2>No hay productos en esta categoría.</h2>'; 
                   }
                   echo '</div>'; 
                 }
               //<!-- ==================== Fin contenedores de categorias =============== -->
 
               //<!-- ==================== Contenedores de supermercados =============== -->
-              
+                
                 $consultar_supermercado = ejecutarSQL::consultar("select * from administrador");
                 while($super = mysqli_fetch_array($consultar_supermercado))
                 {
@@ -173,13 +173,13 @@
                                   <p>
                                     <div class="number-input">
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
-                                      <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                      <input min="1" max="'.$prod['Stock'].'" id="supermercado-stock-'.$prod['CodigoProd'].'" value="1" type="number" readonly>
                                       <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                     </div>
                                   </p>
                                   <p class="text-center">
                                     <a href="infoProducto.php?CodigoProd='.$prod['CodigoProd'].'" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>&nbsp; Detalles</a>&nbsp;&nbsp;
-                                    <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarrito"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
+                                    <button value="'.$prod['CodigoProd'].'" class="btn btn-success btn-sm botonCarritoSupermercado"><i class="fa fa-shopping-cart"></i>&nbsp; Añadir</button>
                                   </p>
                                 </div>
                               </div>
@@ -188,7 +188,7 @@
                         }
                         else
                         {
-                          echo '<h2>No hay productos en esta categoría</h2>'; 
+                          echo '<h2>Este supermercado no tiene productos.</h2>'; 
                         }
                   echo '</div>'; 
                 }
