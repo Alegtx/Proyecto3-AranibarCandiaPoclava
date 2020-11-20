@@ -52,6 +52,7 @@
     {
        $_SESSION['supermercado'] = $fila['NombreAdmin'];
     }
+    //Comprobar si ya hay un supermercado
 	if($_SESSION['supermercado'] == "")
 	{
 		echo "Supermercado: - <br><br>";
