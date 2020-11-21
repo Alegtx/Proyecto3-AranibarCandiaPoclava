@@ -1,7 +1,6 @@
 <====== PENDIENTE ======>
 
 	<=== Parte administrativa ===>
-	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
 	- Boton para mostrar los detalles del pedido en la pestaña de pedidos.
 
 <====== COMPLETADO ======>
@@ -27,6 +26,7 @@
 
 	<=== Parte administrativa ===>
 	- Juntar la parte de eliminar pedido con actualizar estado.
+	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
 
 	<=== Base de datos ===>
 	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha).
