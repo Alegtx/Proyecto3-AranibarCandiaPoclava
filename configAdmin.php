@@ -178,12 +178,12 @@
                         </div>
                         <div class="form-group">
                           <label>Imagen de producto</label>
-                          <input type="file" name="img">
-                          <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg</p>
+                          <input type="file" name="img" accept="image/x-png,image/jpg,image/gif,image/jpeg">
+                          <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
                         </div>
                         <input type="hidden"  name="admin-name" value="'.$_SESSION['nombreAdmin'].'">
                         <p class="text-center"><button type="submit" class="btn btn-primary">Agregar a la tienda</button></p>
-                          <div id="res-form-add-prod" style="width: 100%; text-align: center; margin: 0;"></div>
+                        <div id="res-form-add-prod" style="width: 100%; text-align: center; margin: 0;"></div>
                       </form>
                     </div>
                   </div>
@@ -469,40 +469,54 @@
               echo '
               <!-- ==================== Panel info =============== -->
               <div role="tabpanel" class="tab-pane fade" id="Info">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <br><br>
-                    <div class="panel panel-info">
-                      <div class="panel-heading text-center"><i class="fa fa-book fa-4x"></i><h3>Registro de acciones</h3></div>
-                      <div class="table-responsive">
-                        <table class="table table-bordered">
-                          <thead class="">
-                            <tr>
-                              <th class="text-center">Fecha</th>
-                              <th class="text-center">Admin</th>
-                              <th class="text-center">Tabla</th>
-                              <th class="text-center">Accion</th>
-                            </tr>
-                          </thead>
-                          <tbody>';
-                            $registroc = ejecutarSQL::consultar("select * from registro order by Fecha desc");
-                            while($registro = mysqli_fetch_array($registroc))
-                            {
-                              echo'
-                                <div id="registros">
-                                    <tr>
-                                        <td>'.$registro['Fecha'].'</td>
-                                        <td>'.$registro['NombreAdmin'].'</td>
-                                        <td>'.$registro['Tabla'].'</td>
-                                        <td>'.$registro['Accion'].'</td>
-                                    </tr>
-                                </div>';
-                            }
-                            echo '
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
+                <div class="container text-center">
+                  <div class="page-header">
+                    <h1>Imagen de presentacion</h1>
+                  </div>
+                  <div class="row">';
+                    $consulta= ejecutarSQL::consultar("select * from administrador where Usuario = '".$_SESSION['nombreAdmin']."'");
+                    $admins = mysqli_num_rows($consulta);
+                    while($fila=mysqli_fetch_array($consulta))
+                    {
+                      echo '
+                        <div class="col-xs-12 col-sm-6 col-md-5">
+                          <h2><b><p class="text-center">Antes</p></b></h2>
+                          <font color="red">
+                            <i class="fa fa-exclamation-triangle">
+                              <p>ADVERTENCIA:</p>
+                              <p>Una vez cambie su imagen no se podra recuperar la imagen anterior.</p>
+                            </i>
+                          </font>
+                          <div class="thumbnail">
+                            <h3><b><p class="text-center">'.$fila['Usuario'].'</p></b></h3> 
+                            <img src="assets/img-supermercados/'.$fila['Imagen'].'">
+                          </div>
+                          
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-2 align-middle">
+                          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                          <h1><i class="fa fa-chevron-right"></i></h1>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-5">
+                          <h2><b><p class="text-center">Despues</p></b></h2>
+                          <form role="form" action="procesos/actualizarImagen.php" method="post" enctype="multipart/form-data" id="upload-img">
+                            <div class="form-group">
+                              <input type="file" id="img-super" name="img-super" accept="image/x-png,image/jpg,image/gif,image/jpeg">
+                              <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
+                            </div>
+                            <div class="thumbnail">
+                              <h3><b><p class="text-center">'.$fila['Usuario'].'</p></b></h3> 
+                              <img id="img-new" src="assets/img-supermercados/'.$fila['Imagen'].'">
+                            </div>
+                            <input type="hidden" name="img-old" value="'.$fila['Imagen'].'">
+                            <p class="text-center"><button type="submit" class="btn btn-primary">Cambiar imagen</button></p>
+                          </form>
+                        </div>
+                        ';
+                    } 
+                  echo '
                   </div>
                 </div>
               </div>
@@ -513,5 +527,6 @@
     </div>
   </section>
   <?php include './incluir/footer.php'; ?>
+  <script type="text/javascript" src="js/previewImage.js"></script>
 </body>
 </html>
