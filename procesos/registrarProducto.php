@@ -51,11 +51,11 @@
                                                 <h3>El producto se añadio a la tienda con éxito</h3>
                                                 <p class="lead text-cente">
                                                     La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                                    <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                                    <a href="../configAdmin" class="btn btn-primary btn-lg">Volver a administración</a>
                                                 </p>
                                                 <script>
                                                     setTimeout(function(){
-                                                    url ="../configAdmin.php";
+                                                    url ="../configAdmin";
                                                     $(location).attr("href",url);
                                                     },5000);
                                                 </script>
@@ -69,11 +69,11 @@
                                                 <h3>Ha ocurrido un error. Por favor intente nuevamente</h3>
                                                 <p class="lead text-cente">
                                                     La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                                    <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                                    <a href="../configAdmin" class="btn btn-primary btn-lg">Volver a administración</a>
                                                 </p>
                                                 <script>
                                                     setTimeout(function(){
-                                                    url ="../configAdmin.php";
+                                                    url ="../configAdmin";
                                                     $(location).attr("href",url);
                                                     },5000);
                                                 </script>    
@@ -88,11 +88,11 @@
                                             <h3>Ha ocurrido un error al cargar la imagen</h3>
                                             <p class="lead text-cente">
                                                 La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                                <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                                <a href="../configAdmin" class="btn btn-primary btn-lg">Volver a administración</a>
                                             </p>
                                             <script>
                                                 setTimeout(function(){
-                                                url ="../configAdmin.php";
+                                                url ="../configAdmin";
                                                 $(location).attr("href",url);
                                                 },5000);
                                             </script>
@@ -107,11 +107,11 @@
                                         <h3>El Código de producto ya esta registrado.<br>Por favor ingrese otro código de producto</h3>
                                         <p class="lead text-cente">
                                             La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                            <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                            <a href="../configAdmin" class="btn btn-primary btn-lg">Volver a administración</a>
                                         </p>
                                         <script>
                                             setTimeout(function(){
-                                            url ="../configAdmin.php";
+                                            url ="../configAdmin";
                                             $(location).attr("href",url);
                                             },5000);
                                         </script>
@@ -126,11 +126,11 @@
                                     <h3>Error los campos no deben de estar vacíos</h3>
                                     <p class="lead text-cente">
                                         La pagina se redireccionara automaticamente. Si no es asi haga click en el siguiente boton.<br>
-                                        <a href="../configAdmin.php" class="btn btn-primary btn-lg">Volver a administración</a>
+                                        <a href="../configAdmin" class="btn btn-primary btn-lg">Volver a administración</a>
                                     </p>
                                     <script>
                                         setTimeout(function(){
-                                        url ="../configAdmin.php";
+                                        url ="../configAdmin";
                                         $(location).attr("href",url);
                                         },5000);
                                     </script>
