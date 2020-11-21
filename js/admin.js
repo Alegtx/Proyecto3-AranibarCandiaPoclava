@@ -3,9 +3,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para eliminar producto*/
     $('#del-prod-form form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#del-prod-form form').serialize();
-         var metodo=$('#del-prod-form form').attr('method');
-         var peticion=$('#del-prod-form form').attr('action');
+         var informacion = $('#del-prod-form form').serialize();
+         var metodo = $('#del-prod-form form').attr('method');
+         var peticion = $('#del-prod-form form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
@@ -26,23 +26,23 @@ $(document).ready(function() {
     /*Actualizar producto con ajax*/
     $('.button-UPR').click(function() {
     var myId = $(this).val();
-        $('#update-product form#'+myId).submit(function(e) {
+        $('#update-product form#' + myId).submit(function(e) {
              e.preventDefault();
-             var informacion=$('#update-product form#'+myId).serialize();
-             var metodo=$('#update-product form#'+myId).attr('method');
-             var peticion=$('#update-product form#'+myId).attr('action');
+             var informacion = $('#update-product form#'+myId).serialize();
+             var metodo = $('#update-product form#'+myId).attr('method');
+             var peticion = $('#update-product form#'+myId).attr('action');
              $.ajax({
                 type: metodo,
                 url: peticion,
                 data:informacion,
                 beforeSend: function(){
-                    $("div#"+myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
+                    $("div#" + myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
                 },
                 error: function() {
-                    $("div#"+myId).html("Ha ocurrido un error en el sistema");
+                    $("div#" + myId).html("Ha ocurrido un error en el sistema");
                 },
                 success: function (data) {
-                    $("div#"+myId).html(data);
+                    $("div#" + myId).html(data);
                 }
             });
             return false;
@@ -52,9 +52,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para añadir categoria*/
     $('#add-categori form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#add-categori form').serialize();
-         var metodo=$('#add-categori form').attr('method');
-         var peticion=$('#add-categori form').attr('action');
+         var informacion = $('#add-categori form').serialize();
+         var metodo = $('#add-categori form').attr('method');
+         var peticion = $('#add-categori form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
@@ -75,9 +75,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para eliminar categoria*/
     $('#del-categori form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#del-categori form').serialize();
-         var metodo=$('#del-categori form').attr('method');
-         var peticion=$('#del-categori form').attr('action');
+         var informacion = $('#del-categori form').serialize();
+         var metodo = $('#del-categori form').attr('method');
+         var peticion = $('#del-categori form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
@@ -98,23 +98,23 @@ $(document).ready(function() {
     /*Actualizar categoria con ajax*/
     $('.button-UC').click(function() {
 	var myId = $(this).val();
-        $('#update-category form#'+myId).submit(function(e) {
+        $('#update-category form#' + myId).submit(function(e) {
              e.preventDefault();
-             var informacion=$('#update-category form#'+myId).serialize();
-             var metodo=$('#update-category form#'+myId).attr('method');
-             var peticion=$('#update-category form#'+myId).attr('action');
+             var informacion = $('#update-category form#' + myId).serialize();
+             var metodo = $('#update-category form#' + myId).attr('method');
+             var peticion = $('#update-category form#' + myId).attr('action');
              $.ajax({
                 type: metodo,
                 url: peticion,
                 data:informacion,
                 beforeSend: function(){
-                    $("div#"+myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
+                    $("div#" + myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
                 },
                 error: function() {
-                    $("div#"+myId).html("Ha ocurrido un error en el sistema");
+                    $("div#" + myId).html("Ha ocurrido un error en el sistema");
                 },
                 success: function (data) {
-                    $("div#"+myId).html(data);
+                    $("div#" + myId).html(data);
                 }
             });
             return false;
@@ -124,9 +124,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para agregar administrador*/
     $('#add-admin form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#add-admin form').serialize();
-         var metodo=$('#add-admin form').attr('method');
-         var peticion=$('#add-admin form').attr('action');
+         var informacion = $('#add-admin form').serialize();
+         var metodo = $('#add-admin form').attr('method');
+         var peticion = $('#add-admin form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
@@ -147,9 +147,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para eliminar administrador*/
     $('#del-admin form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#del-admin form').serialize();
-         var metodo=$('#del-admin form').attr('method');
-         var peticion=$('#del-admin form').attr('action');
+         var informacion = $('#del-admin form').serialize();
+         var metodo = $('#del-admin form').attr('method');
+         var peticion = $('#del-admin form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
@@ -170,23 +170,23 @@ $(document).ready(function() {
     /*Actualizar pedido con ajax*/
     $('.button-UPPE').click(function() {
 	var myId = $(this).val();
-        $('#update-pedido form#'+myId).submit(function(e) {
+        $('#update-pedido form#' + myId).submit(function(e) {
              e.preventDefault();
-             var informacion=$('#update-pedido form#'+myId).serialize();
-             var metodo=$('#update-pedido form#'+myId).attr('method');
-             var peticion=$('#update-pedido form#'+myId).attr('action');
+             var informacion = $('#update-pedido form#' + myId).serialize();
+             var metodo = $('#update-pedido form#' + myId).attr('method');
+             var peticion = $('#update-pedido form#' + myId).attr('action');
              $.ajax({
                 type: metodo,
                 url: peticion,
                 data:informacion,
                 beforeSend: function(){
-                    $("div#"+myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
+                    $("div#" + myId).html('<br><img src="assets/img/Update.gif" class="center-all-contens"><br>Actualizando...');
                 },
                 error: function() {
-                    $("div#"+myId).html("Ha ocurrido un error en el sistema");
+                    $("div#" + myId).html("Ha ocurrido un error en el sistema");
                 },
                 success: function (data) {
-                    $("div#"+myId).html(data);
+                    $("div#" + myId).html(data);
                 }
             });
             return false;
@@ -196,9 +196,9 @@ $(document).ready(function() {
     /*Envio del formulario con Ajax para eliminar pedido*/
     $('#del-pedido form').submit(function(e) {
          e.preventDefault();
-         var informacion=$('#del-pedido form').serialize();
-         var metodo=$('#del-pedido form').attr('method');
-         var peticion=$('#del-pedido form').attr('action');
+         var informacion = $('#del-pedido form').serialize();
+         var metodo = $('#del-pedido form').attr('method');
+         var peticion = $('#del-pedido form').attr('action');
          $.ajax({
             type: metodo,
             url: peticion,
