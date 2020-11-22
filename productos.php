@@ -26,7 +26,7 @@
                 <a href="#" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop1-contents" aria-expanded="false">Categorías <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1" id="myTabDrop1-contents">
                   <?php
-                    $categorias =  ejecutarSQL::consultar("select * from categoria");
+                    $categorias = ejecutarSQL::consultar("select * from categoria");
                     while($cate = mysqli_fetch_array($categorias))
                     {
                       echo '
