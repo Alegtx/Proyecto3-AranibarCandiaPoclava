@@ -10,4 +10,7 @@ chmod("/directorio/fichero", 0755);
 
 // Todo para el propietario, lectura y ejecución para el grupo del propietario
 chmod("/directorio/fichero", 0750);
+
+// Asigna todos los permisos al archivo
+chmod("/directorio/fichero", 0777);
 ?>
