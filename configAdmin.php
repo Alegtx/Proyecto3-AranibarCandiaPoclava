@@ -448,6 +448,8 @@
                                           echo '</select>
                                         </td>
                                         <td class="text-center">
+                                          <div onClick="loadDynamicContentModal('."'".$peU['NumPedido']."'".')"
+                                          class="btn btn-sm btn-info">Detalle del pedido</div>&nbsp;&nbsp;&nbsp;
                                           <button type="submit" class="btn btn-sm btn-primary button-UPPE" value="res-update-pedido-'.$upp.'">Actualizar</button>
                                           <div id="res-update-pedido-'.$upp.'" style="width: 100%; margin:0px; padding:0px;"></div>
                                         </td>
@@ -526,7 +528,25 @@
       </div>
     </div>
   </section>
+  <!-- ==================== Modal de detalles =============== -->
+  <div class="modal fade" id="modal-detalles" role="dialog">
+    <div class="modal-dialog" role="document"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b>Detalles del pedido</b></h5>
+        </div>
+        <div class="modal-body">
+          <div id="conte-modal"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- ==================== Fin modal de detalles =============== -->
   <?php include './incluir/footer.php'; ?>
   <script type="text/javascript" src="js/previewImage.js"></script>
+  <script type="text/javascript" src="js/mostrarDetalle.js"></script>
 </body>
 </html>
