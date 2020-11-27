@@ -215,4 +215,30 @@ $(document).ready(function() {
         });
         return false;
     });
+
 });
+
+function verDetallePedido(modal){
+    var options = {
+            modal: true,
+            height:300,
+            width:600
+        };
+    // Realiza la consulta al fichero php para obtener información de la BD.
+    $('#conte-modal').load('procesos/mostrarDetalle.php?nro_pedido='+modal, function() {
+        $('#modal-detalles').modal({show:true});
+    });    
+}
+
+function updateImagenProducto(codigo, nombre){
+    var options = {
+            codigo: true,
+            nombre: true,
+            height:300,
+            width:600
+        };
+    // Realiza la consulta al fichero php para obtener información de la BD.
+    $('#modal-imagen').modal({show:true});   
+    $('#codigo-nombre').html("<b>Codigo: </b>"+codigo+"<br><b>Nombre: </b>"+nombre);
+    $('#cod-prod-img').val(codigo);
+}

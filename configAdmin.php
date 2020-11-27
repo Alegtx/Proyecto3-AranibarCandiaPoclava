@@ -101,7 +101,7 @@
                     <div class="panel panel-info">
                       <div class="panel-heading text-center"><i class="fa fa-book fa-4x"></i><h3>Registro de acciones</h3></div>
                       <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered text-center">
                           <thead class="">
                             <tr>
                               <th class="text-center">Fecha</th>
@@ -236,7 +236,7 @@
                                   <form method="post" action="procesos/actualizarProducto.php" id="res-update-product-'.$upr.'">
                                     <tr>
                                       <td>
-                                        <input class="form-control" type="hidden" name="cod-old-prod" required="" value="'.$prod['CodigoProd'].'">
+                                        <input class="form-control" type="hidden" readonly name="cod-old-prod" required="" value="'.$prod['CodigoProd'].'">
                                         <input class="form-control" type="text" name="cod-prod" maxlength="30" required="" value="'.$prod['CodigoProd'].'">
                                       </td>
                                       <td><input class="form-control" type="text" name="prod-nombre" maxlength="30" required="" value="'.$prod['NombreProd'].'"></td>
@@ -269,8 +269,10 @@
                                       <td><input class="form-control" type="tel" name="marca-prod" required="" maxlength="20" value="'.$prod['Marca'].'"></td>
                                       <td><input class="form-control" type="text-area" name="stock-prod" maxlength="30" required="" value="'.$prod['Stock'].'"></td>'; 
                                       echo '
-                                      <td class="text-center">
+                                      <td class="text-center" width="11%">
                                         <button type="submit" class="btn btn-sm btn-primary button-UPR" value="res-update-product-'.$upr.'">Actualizar</button>
+                                        <div onClick="updateImagenProducto('."'".$prod['CodigoProd']."','".$prod['NombreProd']."'".')"
+                                          class="btn btn-sm btn-info"><i class="fa fa-file-image-o"></i></div>
                                         <div id="res-update-product-'.$upr.'" style="width: 100%; margin:0px; padding:0px;"></div>
                                       </td>
                                     </tr>
@@ -394,7 +396,7 @@
                     <div class="panel panel-info">
                       <div class="panel-heading text-center"><i class="fa fa-refresh fa-2x"></i><h3>Actualizar estado de pedido</h3></div>
                       <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered text-center">
                           <thead class="">
                             <tr>
                               <th class="text-center">#</th>
@@ -402,11 +404,12 @@
                               <th class="text-center">Cliente</th>
                               <th class="text-center">Total</th>
                               <th class="text-center">Estado</th>
+                              <th class="text-center">Fecha de entrega</th>
                               <th class="text-center">Opciones</th>
                             </tr>
                           </thead>
                           <tbody>';
-                            $pedidoU = ejecutarSQL::consultar("select * from venta where NombreAdmin='".$_SESSION['nombreAdmin']."'");
+                            $pedidoU = ejecutarSQL::consultar("select * from venta where NombreAdmin='".$_SESSION['nombreAdmin']."' order by Fecha desc");
                             $upp = 1;
                             while($peU = mysqli_fetch_array($pedidoU))
                             {
@@ -424,7 +427,7 @@
                                         }
                                         echo '
                                         </td>
-                                        <td>'.$peU['TotalPagar'].'</td>
+                                        <td>'.$peU['TotalPagar'].' Bs.</td>
                                         <td>
                                           <select class="form-control" name="pedido-status">';
                                             if($peU['Estado'] == "Pendiente")
@@ -447,8 +450,9 @@
                                             }
                                           echo '</select>
                                         </td>
+                                        <td>'.$peU['FechaEntrega'].'</td>
                                         <td class="text-center">
-                                          <div onClick="loadDynamicContentModal('."'".$peU['NumPedido']."'".')"
+                                          <div onClick="verDetallePedido('."'".$peU['NumPedido']."'".')"
                                           class="btn btn-sm btn-info">Detalle del pedido</div>&nbsp;&nbsp;&nbsp;
                                           <button type="submit" class="btn btn-sm btn-primary button-UPPE" value="res-update-pedido-'.$upp.'">Actualizar</button>
                                           <div id="res-update-pedido-'.$upp.'" style="width: 100%; margin:0px; padding:0px;"></div>
@@ -503,7 +507,7 @@
 
                         <div class="col-xs-12 col-sm-6 col-md-5">
                           <h2><b><p class="text-center">Despues</p></b></h2>
-                          <form role="form" action="procesos/actualizarImagen.php" method="post" enctype="multipart/form-data" id="upload-img">
+                          <form role="form" action="procesos/actualizarImagenAdmin.php" method="post" enctype="multipart/form-data" id="upload-img">
                             <div class="form-group">
                               <input type="file" id="img-super" name="img-super" accept="image/x-png,image/jpg,image/gif,image/jpeg">
                               <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
@@ -512,7 +516,6 @@
                               <h3><b><p class="text-center">'.$fila['Usuario'].'</p></b></h3> 
                               <img id="img-new" src="assets/img-supermercados/'.$fila['Imagen'].'">
                             </div>
-                            <input type="hidden" name="img-old" value="'.$fila['Imagen'].'">
                             <p class="text-center"><button type="submit" class="btn btn-primary">Cambiar imagen</button></p>
                           </form>
                         </div>
@@ -545,8 +548,38 @@
     </div>
   </div>
    <!-- ==================== Fin modal de detalles =============== -->
+
+   <!-- ==================== Modal de actualizar imagen =============== -->
+  <div class="modal fade" id="modal-imagen" role="dialog">
+    <div class="modal-dialog" role="document"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b>Cambia la imagen del producto</b></h5>
+        </div>
+        <div class="modal-body">
+          <div id="conte-modal-img">
+            <div class="modal-text">
+              <form role="form" action="procesos/actualizarImagenProducto" method="post" enctype="multipart/form-data">
+                <div id="codigo-nombre"></div>
+                <div class="form-group">
+                  <b>Nueva imagen de tu producto</b>
+                  <input type="file" id="img-prod" name="img-prod" accept="image/x-png,image/jpg,image/gif,image/jpeg">
+                  <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
+                  <input type="hidden" readonly id="cod-prod-img" name="cod-prod-img" value="">
+                </div>
+                <p class="text-center"><button type="submit" class="btn btn-primary">Cambiar imagen</button></p>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- ==================== Fin modal de actualizar imagen =============== -->
   <?php include './incluir/footer.php'; ?>
   <script type="text/javascript" src="js/previewImage.js"></script>
-  <script type="text/javascript" src="js/mostrarDetalle.js"></script>
 </body>
 </html>
