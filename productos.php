@@ -39,22 +39,27 @@
                 </ul>
               </li>
               <!-- ==================== Lista supermercados =============== -->
-              <li role="presentation" class="dropdown">
-                <a href="#" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop2-contents" aria-expanded="false">Supermercados <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2" id="myTabDrop2-contents">
-                  <?php
-                    $adminc =  ejecutarSQL::consultar("select * from administrador where Usuario!='admin'");
-                    while($admin = mysqli_fetch_array($adminc))
-                    {
-                      echo '
-                          <li>
-                              <a href="#'.$admin['Usuario'].'" tabindex="-1" role="tab" id="'.$admin['Usuario'].'-tab" data-toggle="tab" aria-controls="'.$admin['Usuario'].'" aria-expanded="false">'.$admin['Usuario'].'
-                              </a>
-                          </li>';
-                    }
-                  ?>
-                </ul>
-              </li>
+              <?php 
+                //Comprobar que un supermercado no este logeado
+                if($_SESSION['nombreAdmin'] == "" || $_SESSION['nombreAdmin'] == "admin")
+                {
+                  echo '
+                  <li role="presentation" class="dropdown">
+                    <a href="#" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown" aria-controls="myTabDrop2-contents" aria-expanded="false">Supermercados <span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2" id="myTabDrop2-contents">';
+                        $adminc =  ejecutarSQL::consultar("select * from administrador where Usuario!='admin'");
+                        while($admin = mysqli_fetch_array($adminc))
+                        {
+                          echo '
+                              <li>
+                                  <a href="#'.$admin['Usuario'].'" tabindex="-1" role="tab" id="'.$admin['Usuario'].'-tab" data-toggle="tab" aria-controls="'.$admin['Usuario'].'" aria-expanded="false">'.$admin['Usuario'].'
+                                  </a>
+                              </li>';
+                        }
+                    echo '</ul>
+                  </li>';
+                }
+              ?>
             </ul>
             <!-- ==================== Contenedor de todos los productos =============== -->
             <div id="myTabContent" class="tab-content">
@@ -62,7 +67,14 @@
                 <br><br>
                 <div class="row">
                   <?php
-                      $consulta =  ejecutarSQL::consultar("select * from producto where Stock > 0");
+                      if($_SESSION['nombreAdmin'] == "" || $_SESSION['nombreAdmin'] == "admin")
+                      {
+                        $consulta =  ejecutarSQL::consultar("select * from producto where Stock > 0 order by NombreProd");
+                      }
+                      else
+                      {
+                        $consulta =  ejecutarSQL::consultar("select * from producto where NombreAdmin='".$_SESSION['nombreAdmin']."' and Stock > 0 order by NombreProd");
+                      }
                       $totalproductos = mysqli_num_rows($consulta);
                       if($totalproductos > 0)
                       {
@@ -108,9 +120,15 @@
                 $consultar_categorias = ejecutarSQL::consultar("select * from categoria");
                 while($categ = mysqli_fetch_array($consultar_categorias))
                 {
-                  echo '
-                    <div role="tabpanel" class="tab-pane fade active in" id="'.$categ['CodigoCat'].'" aria-labelledby="'.$categ['CodigoCat'].'-tab"><br>';
-                  $consultar_productos = ejecutarSQL::consultar("select * from producto where CodigoCat='".$categ['CodigoCat']."' and Stock > 0");
+                  echo '<div role="tabpanel" class="tab-pane fade active in" id="'.$categ['CodigoCat'].'" aria-labelledby="'.$categ['CodigoCat'].'-tab"><br>';
+                  if($_SESSION['nombreAdmin'] == "" || $_SESSION['nombreAdmin'] == "admin")
+                  {
+                    $consultar_productos = ejecutarSQL::consultar("select * from producto where CodigoCat='".$categ['CodigoCat']."' and Stock > 0 order by NombreProd");
+                  }
+                  else
+                  {
+                    $consultar_productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$_SESSION['nombreAdmin']."' and CodigoCat='".$categ['CodigoCat']."' and Stock > 0 order by NombreProd");
+                  }
                   $totalprod = mysqli_num_rows($consultar_productos);
                   if($totalprod > 0)
                   {
@@ -157,7 +175,7 @@
                 {
                   echo '
                     <div role="tabpanel" class="tab-pane fade active in" id="'.$super['Usuario'].'" aria-labelledby="'.$super['Usuario'].'-tab"><br>';
-                      $consultar_productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$super['Usuario']."' and Stock > 0");
+                      $consultar_productos = ejecutarSQL::consultar("select * from producto where NombreAdmin='".$super['Usuario']."' and Stock > 0 order by NombreProd");
                       $totalprod = mysqli_num_rows($consultar_productos);
                       if($totalprod > 0)
                       {
