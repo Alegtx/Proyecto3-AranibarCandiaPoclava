@@ -13,7 +13,7 @@
         $verificalTotal = mysqli_num_rows($verificar);
         if($verificalTotal <= 0)
         {
-            if(consultasSQL::InsertSQL("administrador", "Usuario, Clave", "'$usuarioAdmin','$passAdmin'"))
+            if(consultasSQL::InsertSQL("administrador", "Usuario, Clave, Imagen", "'$usuarioAdmin','$passAdmin','default-shopon-line.png'"))
             {
                 consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Administrador','Registrar'");
 
