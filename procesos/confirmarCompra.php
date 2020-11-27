@@ -33,7 +33,7 @@
       $StatusV = "Pendiente";
       
       //Insertando datos en tabla venta
-      consultasSQL::InsertSQL("venta", "Fecha, NIT, Descuento, TotalPagar, Estado, NombreAdmin", "'".date('d-m-Y')."','".$nitC."','0','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."'");
+      consultasSQL::InsertSQL("venta", "NIT, Descuento, TotalPagar, Estado, NombreAdmin", "'".$nitC."','0','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."'");
       
       //Recuperando el número del pedido actual
       $verId = ejecutarSQL::consultar("select * from venta where NIT='$nitC' order by NumPedido desc limit 1");
