@@ -13,6 +13,7 @@
 
 	<=== Productos ===>
 	-Capacidad de poder escribir el numero de items a comprar.
+	- Si un supermercado esta logeado solo mostrar sus productos.
 
 	<=== Registro ===>
 	-Añadir boton de "ver password" en el formulario de registro.
@@ -24,9 +25,11 @@
 	-Añadir boton de "ver password" en el modal de login.
 
 	<=== Parte administrativa ===>
-	- Juntar la parte de eliminar pedido con actualizar estado.
 	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
 	- Boton para mostrar los detalles del pedido en la pestaña de pedidos.
+	- Modal para cambiar la imagen de un producto en la parte de actualizar producto.
+	- No borrar las imagenes sino cambiarles el nombre.
+	- Campo de fecha/hora al momento de entregar el pedido.
 
 	<=== Base de datos ===>
 	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha).
