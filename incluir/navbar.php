@@ -34,8 +34,8 @@
                     <i class="fa fa-shopping-cart"></i>
                 </p>
                 <p class="text-center">
-                    <a href="pedido.php" class="btn btn-success btn-block"><i class="fa fa-dollar"></i>   Confirmar pedido</a>
-                    <a href="procesos/vaciarCarrito.php" class="btn btn-danger btn-block"><i class="fa fa-trash"></i>   Vaciar carrito</a> 
+                    <a href="pedido" class="btn btn-success btn-block"><i class="fa fa-dollar"></i>   Confirmar pedido</a>
+                    <a href="procesos/vaciarCarrito" class="btn btn-danger btn-block"><i class="fa fa-trash"></i>   Vaciar carrito</a> 
                 </p>
             </div>
         </div>
@@ -141,7 +141,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title text-center text-primary" id="myModalLabel">Iniciar sesión en Shopon-line</h4>
                 </div>
-            <form action="procesos/login.php" method="post" role="form" style="margin: 20px;" class="FormCatElec" data-form="login">
+                <form action="procesos/login.php" method="post" role="form" style="margin: 20px;" class="FormCatElec" data-form="login">
                     <div class="form-group">
                         <label><span class="glyphicon glyphicon-user"></span>&nbsp;Usuario</label>
                         <input type="text" class="form-control" name="usuario-login" placeholder="Escribe tu usuario" required=""/>
@@ -175,7 +175,7 @@
         </button>
         <br><br>
         <ul class="list-unstyled text-center">
-            <li><a href="indexp">Inicio</a></li>
+            <li><a href="index">Inicio</a></li>
             <li><a href="productos">Productos</a></li>
             <?php 
                 if(!$_SESSION['nombreAdmin'] == "")
@@ -216,7 +216,7 @@
             <p class="text-center">¿Quieres cerrar la sesión?</p>
             <p class="text-center"><i class="fa fa-exclamation-triangle fa-5x"></i></p>
             <p class="text-center">
-                <a href="procesos/logout.php" class="btn btn-primary btn-sm">Cerrar la sesión</a>
+                <a href="procesos/logout" class="btn btn-primary btn-sm">Cerrar la sesión</a>
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
             </p>
         </div>

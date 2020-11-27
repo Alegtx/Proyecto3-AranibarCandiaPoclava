@@ -14,5 +14,5 @@
     Todas las marcas registradas referenciadas son propiedad de sus respectivos dueños.
     </h4>
     <br>
-    <h5 class="text-center tittles-pages-logo">Shopon-line &copy; 2020™</h5>
+    <h4 class="text-center tittles-pages-logo">Shopon-line &copy; 2020™</h4>
 </footer>

@@ -54,7 +54,7 @@
               <p><i class="fa fa-users fa-4x"></i></p>
               <h3>Registrate</h3>
               <p>Registrese y hagase cliente de <span class="tittles-pages-logo">Shopon-line</span> para recibir las mejores ofertas y descuentos especiales de nuestros productos.</p>
-              <p><a href="registro.php" class="btn btn-info btn-block">Registrarse</a></p>   
+              <p><a href="registro" class="btn btn-info btn-block">Registrarse</a></p>   
             </article>
           </div>
           <div class="col-xs-12 col-sm-4">

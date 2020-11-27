@@ -38,7 +38,6 @@
 					<td></td>					
 					<td><b>Total</b></td>
 					<td>".number_format($Total, 2)." Bs.</td>
-
 				</tr>
 				</tbody>
 			</table>

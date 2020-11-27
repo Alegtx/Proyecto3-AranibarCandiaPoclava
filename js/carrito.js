@@ -32,7 +32,7 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
             }
             else{
                 $('h5').html("El producto se añadio al carrito correctamente.");
@@ -67,7 +67,7 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
             }
             else{
                 $('h5').html("El producto se añadio al carrito correctamente.");
@@ -98,7 +98,7 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
             }
             else{
                 $('h5').html("El producto se añadio al carrito correctamente.");
