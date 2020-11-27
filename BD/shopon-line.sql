@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 22-11-2020 a las 22:40:24
+-- Tiempo de generación: 27-11-2020 a las 03:38:06
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 
 INSERT INTO `administrador` (`Usuario`, `Clave`, `Imagen`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', ''),
-('Ketal', '4badaee57fed5610012a296273158f5f', 'KETAL.png'),
-('Fidalga', 'e10adc3949ba59abbe56e057f20f883e', 'default.png'),
-('Hipermaxi', '4d186321c1a7f0f354b297e8914ab240', 'default.png');
+('Ketal', '4badaee57fed5610012a296273158f5f', '2020-11-27_03.22.58_KETAL.png'),
+('Fidalga', 'e10adc3949ba59abbe56e057f20f883e', 'default-shopon-line.png'),
+('Hipermaxi', '4d186321c1a7f0f354b297e8914ab240', 'default-shopon-line.png');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,14 @@ INSERT INTO `detalle` (`NumPedido`, `CodigoProd`, `CantidadProductos`) VALUES
 (14, 'KET-002', 3),
 (14, 'KET-007', 2),
 (14, 'KET-013', 3),
-(14, 'KET-015', 3);
+(14, 'KET-015', 3),
+(15, 'HIP-002', 4),
+(16, 'FID-007', 2),
+(16, 'FID-015', 3),
+(16, 'FID-014', 8),
+(16, 'FID-013', 4),
+(16, 'FID-010', 3),
+(16, 'FID-009', 1);
 
 -- --------------------------------------------------------
 
@@ -159,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `producto` (
 --
 
 INSERT INTO `producto` (`CodigoProd`, `NombreProd`, `CodigoCat`, `Precio`, `Marca`, `Stock`, `Imagen`, `NombreAdmin`) VALUES
-('KET-001', 'Leche Natural', 'CAT-001', '6.50', 'Pil', 16, 'leche.jpg', 'Ketal'),
+('KET-001', 'Leche Natural', 'CAT-001', '6.50', 'Pil', 16, '2020-11-27_03.25.33_leche.jpg', 'Ketal'),
 ('KET-002', 'Biogurt Frutilla 1LT', 'CAT-001', '14.50', 'Pil', 39, 'yogurt.jpg', 'Ketal'),
 ('KET-003', 'Leche Chocolatada', 'CAT-001', '8.00', 'Pil', 38, 'lechechoco.jpg', 'Ketal'),
 ('KET-004', 'Leche Vaquita', 'CAT-001', '1.00', 'Pil', 169, 'chocolatada.jpg', 'Ketal'),
@@ -180,15 +187,16 @@ INSERT INTO `producto` (`CodigoProd`, `NombreProd`, `CodigoCat`, `Precio`, `Marc
 ('FID-004', 'Doritos de Queso 200Gr', 'CAT-004', '19.90', 'Doritos', 76, 'dorito.jpg', 'Fidalga'),
 ('FID-005', 'Galletas Oreo Six Pack', 'CAT-004', '10.50', 'Oreo', 56, 'oreo.jpg', 'Fidalga'),
 ('FID-006', 'Chocolate M&M 150Gr', 'CAT-004', '27.80', 'M&M', 38, 'MYM.jpg', 'Fidalga'),
-('FID-007', 'Alfajor 6Uni', 'CAT-005', '11.90', 'Shopon', 29, 'alfajor.jpg', 'Fidalga'),
+('FID-007', 'Alfajor 6Uni', 'CAT-005', '11.90', 'Shopon', 27, 'alfajor.jpg', 'Fidalga'),
 ('FID-008', 'Pan Sarna Bolsa 10Uni', 'CAT-005', '0.70', 'Shopon', 43, 'Pan.jpg', 'Fidalga'),
-('FID-009', 'Cunape Abiscochado', 'CAT-005', '13.50', 'Monona', 77, 'cunape.jpg', 'Fidalga'),
-('FID-010', 'Queque Chocolate 220 Gr', 'CAT-005', '9.90', 'La Suprema', 83, 'queque.jpg', 'Fidalga'),
+('FID-009', 'Cunape Abiscochado', 'CAT-005', '13.50', 'Monona', 76, 'cunape.jpg', 'Fidalga'),
+('FID-010', 'Queque Chocolate 220 Gr', 'CAT-005', '9.90', 'La Suprema', 80, 'queque.jpg', 'Fidalga'),
 ('FID-011', 'Jabon Liquido 360Ml', 'CAT-006', '12.00', 'Liz', 365, 'jabonliquido.jpg', 'Fidalga'),
 ('FID-012', 'Papel Clasico 12Uni', 'CAT-006', '23.00', 'Nacional', 556, 'papel.jpg', 'Fidalga'),
-('FID-013', 'Jabon Original', 'CAT-006', '8.90', 'Dove', 179, 'jabon.jpg', 'Fidalga'),
-('FID-014', 'Crema Peinar Rizos Obedientes', 'CAT-006', '16.70', 'Sedal', 137, 'crema.jpg', 'Fidalga'),
-('FID-015', 'Colgate MaxWhite', 'CAT-006', '19.60', 'Colgate', 18, 'colgate.jpg', 'Fidalga');
+('FID-013', 'Jabon Original', 'CAT-006', '8.90', 'Dove', 175, 'jabon.jpg', 'Fidalga'),
+('FID-014', 'Crema Peinar Rizos Obedientes', 'CAT-006', '16.70', 'Sedal', 129, 'crema.jpg', 'Fidalga'),
+('FID-015', 'Colgate MaxWhite', 'CAT-006', '19.60', 'Colgate', 15, 'colgate.jpg', 'Fidalga'),
+('HIP-002', 'Sprite 3L', 'CAT-003', '10.00', 'Coca-Cola', 26, 'sprite-3l.jpg', 'Hipermaxi');
 
 -- --------------------------------------------------------
 
@@ -230,7 +238,38 @@ INSERT INTO `registro` (`Fecha`, `NombreAdmin`, `Tabla`, `Accion`) VALUES
 ('2020-11-20 21:40:17', 'Ketal', 'Administrador', 'Modificar'),
 ('2020-11-20 21:40:37', 'Ketal', 'Administrador', 'Modificar'),
 ('2020-11-20 21:41:11', 'Ketal', 'Administrador', 'Modificar'),
-('2020-11-20 21:41:26', 'Ketal', 'Administrador', 'Modificar');
+('2020-11-20 21:41:26', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-23 14:52:32', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-23 14:55:54', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-23 14:58:17', 'Hipermaxi', 'Producto', 'Registrar'),
+('2020-11-23 14:59:33', 'Hipermaxi', 'Producto', 'Actualizar'),
+('2020-11-23 15:02:52', 'Hipermaxi', 'Producto', 'Registrar'),
+('2020-11-23 15:03:15', 'Hipermaxi', 'Producto', 'Eliminar'),
+('2020-11-23 15:03:59', 'Hipermaxi', 'Categoria', 'Registrar'),
+('2020-11-23 15:04:35', 'Hipermaxi', 'Categoria', 'Actualizar'),
+('2020-11-23 15:08:02', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-23 15:17:20', 'Ketal', 'Categoria', 'Eliminar'),
+('2020-11-23 15:25:26', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 19:50:57', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 19:51:06', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:40:35', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:44:00', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:44:34', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:44:42', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:53:55', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:54:52', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 20:55:42', 'Ketal', 'Producto', 'Actualizar'),
+('2020-11-26 20:57:38', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-26 21:02:01', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-26 22:23:21', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-26 23:22:19', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 23:22:29', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 23:22:58', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 23:25:23', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 23:25:33', 'Ketal', 'Administrador', 'Modificar'),
+('2020-11-26 23:34:40', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-26 23:34:54', 'Ketal', 'Venta', 'Actualizar'),
+('2020-11-26 23:36:26', 'Ketal', 'Venta', 'Actualizar');
 
 -- --------------------------------------------------------
 
@@ -241,29 +280,30 @@ INSERT INTO `registro` (`Fecha`, `NombreAdmin`, `Tabla`, `Accion`) VALUES
 DROP TABLE IF EXISTS `venta`;
 CREATE TABLE IF NOT EXISTS `venta` (
   `NumPedido` int(20) NOT NULL AUTO_INCREMENT,
-  `Fecha` varchar(150) NOT NULL,
+  `Fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `NIT` varchar(30) NOT NULL,
-  `Descuento` int(20) NOT NULL,
   `TotalPagar` decimal(30,2) NOT NULL,
   `Estado` varchar(150) NOT NULL,
   `NombreAdmin` varchar(30) NOT NULL,
+  `FechaEntrega` varchar(30) NOT NULL DEFAULT '-',
   PRIMARY KEY (`NumPedido`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `venta`
 --
 
-INSERT INTO `venta` (`NumPedido`, `Fecha`, `NIT`, `Descuento`, `TotalPagar`, `Estado`, `NombreAdmin`) VALUES
-(3, '06-11-2020', '6962296', 0, '6.50', 'Cancelado', 'Ketal'),
-(4, '06-11-2020', '6962296', 0, '6.50', 'Cancelado', 'Ketal'),
-(6, '06-11-2020', '6962296', 0, '29.00', 'Cancelado', 'Ketal'),
-(7, '06-11-2020', '6962296', 0, '21.00', 'Pendiente', 'Ketal'),
-(8, '09-11-2020', '1527788', 0, '93.50', 'Entregado', 'Fidalga'),
-(11, '17-11-2020', '1527788', 0, '143.50', 'Entregado', 'Ketal'),
-(12, '17-11-2020', '1527788', 0, '39.00', 'Cancelado', 'Ketal'),
-(13, '17-11-2020', '1527788', 0, '204.50', 'Cancelado', 'Ketal'),
-(14, '17-11-2020', '1527788', 0, '211.60', 'Pendiente', 'Ketal');
+INSERT INTO `venta` (`NumPedido`, `Fecha`, `NIT`, `TotalPagar`, `Estado`, `NombreAdmin`, `FechaEntrega`) VALUES
+(3, '2020-11-06 15:12:58', '6962296', '6.50', 'Entregado', 'Ketal', '-'),
+(15, '2020-11-23 16:12:58', '1527788', '40.00', 'Pendiente', 'Hipermaxi', '-'),
+(6, '2020-11-06 15:15:58', '6962296', '29.00', 'Cancelado', 'Ketal', '-'),
+(7, '2020-11-06 18:12:58', '6962296', '21.00', 'Cancelado', 'Ketal', '-'),
+(8, '2020-11-09 15:03:58', '1527788', '93.50', 'Entregado', 'Fidalga', '-'),
+(11, '2020-11-17 09:12:03', '1527788', '143.50', 'Entregado', 'Ketal', '-'),
+(12, '2020-11-17 17:12:58', '1527788', '39.00', 'Cancelado', 'Ketal', '-'),
+(13, '2020-11-17 17:55:58', '1527788', '204.50', 'Cancelado', 'Ketal', '-'),
+(14, '2020-11-17 20:12:58', '1527788', '211.60', 'Entregado', 'Ketal', '2020-11-26 23:36:26'),
+(16, '2020-11-26 22:29:51', '6962296', '261.50', 'Pendiente', 'Fidalga', '-');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
