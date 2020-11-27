@@ -4,11 +4,16 @@
 
     sleep(5);
 
-    $numeroPedidoNew = $_POST['num-pedido'];
-    $estadoPedidonew = $_POST['pedido-status'];
+    $numeroPedido = $_POST['num-pedido'];
+    $estadoPedidoNew = $_POST['pedido-status'];
 
-    if(consultasSQL::UpdateSQL("venta", "Estado='$estadoPedidonew'", "NumPedido='$numeroPedidoNew'"))
+    if(consultasSQL::UpdateSQL("venta", "Estado='$estadoPedidoNew'", "NumPedido='$numeroPedido'"))
     {
+        //Comprobar si se esta entregando el pedido
+        if($estadoPedidoNew=="Entregado"){
+            consultasSQL::UpdateSQL("venta", "FechaEntrega=Now()", "NumPedido='$numeroPedido'");
+        }
+
         session_start();
         consultasSQL::InsertSQL("registro", "NombreAdmin, Tabla, Accion", "'".$_SESSION['nombreAdmin']."','Venta','Actualizar'");
 
