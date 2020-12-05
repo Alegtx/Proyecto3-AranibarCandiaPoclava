@@ -30,14 +30,16 @@
                                     <h4><strong>Precio: </strong>'.$fila['Precio'].'</h4>
                                     <h4><strong>Stock: </strong>'.$fila['Stock'].'</h4>
                                     <h4><strong>Supermercado: </strong>'.$fila['NombreAdmin'].'</h4>
+                                    <p class="text-center">
                                     <h4>
                                         <strong>Cantidad a comprar: </strong>
                                         <div class="number-input">
                                             <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepDown()"></button>
-                                            <input min="1" max="'.$fila['Stock'].'" id="stock'.$fila['CodigoProd'].'" value="1" type="number" readonly>
+                                            <input min="1" max="'.$fila['Stock'].'" id="stock-'.$fila['CodigoProd'].'" value="1" type="number" readonly>
                                             <button onclick="this.parentNode.querySelector(',"'input[type=number]'",').stepUp()" class="plus"></button>
                                         </div>
                                     </h4>
+                                    <h4><input type="hidden" id="modal-'.$fila['CodigoProd'].'" value="'.$fila['NombreAdmin'].'"></h4>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
                                     <br><br><br>
