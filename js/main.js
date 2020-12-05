@@ -60,3 +60,34 @@ $(document).ready(function() {
         }
     });
 });
+$(function(){
+    //Obtener la fecha minima para el input
+    var fechaActual = new Date();
+    var minDate = retornarFecha(fechaActual);
+    //Obtener la fecha maxima para el input
+    // (Dias * 24 horas * 60 minutos * 60 segundos * 1000 milésimas de segundo) 
+    var añadirMes = 30 * 24 * 60 * 60 * 1000; 
+    fechaMax = fechaActual.getTime() + (añadirMes); 
+    var fechaFormateada = new Date(fechaMax); 
+    var maxDate = retornarFecha(fechaFormateada);
+
+    /*alert(minDate);
+    alert(maxDate);*/
+    $('#fecha-recogo').attr('min', minDate);
+    $('#fecha-recogo').attr('max', maxDate);
+});
+function retornarFecha(fecha){
+    var mes = fecha.getMonth() + 1;
+    var dia = fecha.getDate();
+    var año = fecha.getFullYear();
+    if(mes < 10)
+    {
+        mes = '0' + mes.toString();
+    }
+    if(dia < 10)
+    {
+        dia = '0' + dia.toString();
+    }
+    var fechaNueva = año + '-' + mes + '-' + dia;
+    return fechaNueva;
+}
