@@ -33,10 +33,14 @@
                 <p class="text-center" style="font-size: 80px;">
                     <i class="fa fa-shopping-cart"></i>
                 </p>
-                <p class="text-center">
+                <div class="text-center">
                     <a href="pedido" class="btn btn-success btn-block"><i class="fa fa-dollar"></i>   Confirmar pedido</a>
-                    <a href="procesos/vaciarCarrito" class="btn btn-danger btn-block"><i class="fa fa-trash"></i>   Vaciar carrito</a> 
-                </p>
+                    <button class="btn btn-danger btn-block botonVaciarCarrito"><i class="fa fa-trash"></i>   Vaciar carrito</button>
+                    <!--<a href="procesos/vaciarCarrito" class="btn btn-danger btn-block"><i class="fa fa-trash"></i>   Vaciar carrito</a> -->
+                    <?php
+                        echo '<div onClick="verHistorialPedido('."'".$_SESSION['nombreUser']."'".')" class="btn btn-info btn-block"><i class="fa fa-clock-o"></i>   Historial de Pedidos</div>'; 
+                    ?>
+                </div>
             </div>
         </div>
     </div>
@@ -200,8 +204,8 @@
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <br>
-            <p class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></p>
-            <h5 class="text-center"><p>El producto se añadio al carrito correctamente.</p></h5>
+            <div id="modal-carrito-img" class="text-center"><i class="fa fa-shopping-cart fa-5x"></i></div>
+            <div id="modal-carrito-text" class="text-center">El producto se añadio al carrito correctamente.</div>
             <p class="text-center"><button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Aceptar</button></p>
         </div>
       </div>
@@ -223,3 +227,40 @@
       </div>
     </div>
     <!-- ==================== Fin modal de logout =============== -->
+
+    <!-- ==================== Modal de historial =============== -->
+    <div class="modal fade" id="modal-historial" role="dialog">
+        <div class="modal-dialog modal-lg" > 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h5 class="modal-title"><b>Historial de pedidos</b></h5>
+                </div>
+                <div class="modal-body">
+                    <div id="conte-modal-historial"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- ==================== Fin modal de historial =============== -->
+
+  <!-- ==================== Modal de detalles =============== -->
+    <div class="modal fade" id="modal-detalles" role="dialog">
+        <div class="modal-dialog" role="document"> 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><b>Detalles del pedido</b></h5>
+                </div>
+                <div class="modal-body">
+                    <div id="conte-modal"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- ==================== Fin modal de detalles =============== -->

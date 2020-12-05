@@ -3,8 +3,17 @@
     include '../conexion/consultaSQL.php';
 
     $totalpedidos = ejecutarSQL::consultar("select * from detalle where NumPedido='".$_GET["nro_pedido"]."'");
+    echo "<h4><b>Pedido N°:&nbsp;&nbsp;&nbsp;".$_GET["nro_pedido"]."</b></h4>";
+    $totalventas = ejecutarSQL::consultar("select * from venta where NumPedido='".$_GET["nro_pedido"]."'");
+	while ($venta = mysqli_fetch_array($totalventas))
+	{
+		echo "<b>Estado: </b>".$venta['Estado']."<br>";
+		if($venta['MotivoCancelacion'] != "-")
+		{
+			echo "<b>Motivo de cancelacion: </b>".$venta['MotivoCancelacion'];
+		}
+	}
     echo "
-    	<h4><b>Pedido N°:&nbsp;&nbsp;&nbsp;".$_GET["nro_pedido"]."</b></h4>
     	<div class='modal-text'>
 		    <table class='table'>
 				<thead>
@@ -41,6 +50,7 @@
 				</tr>
 				</tbody>
 			</table>
-		</div>	
+		</div>
 	";
+	
 ?>
