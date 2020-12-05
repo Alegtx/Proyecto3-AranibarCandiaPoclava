@@ -22,9 +22,9 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <div id="form-compra">
-                            <form action="procesos/confirmarCompra.php" method="post" role="form" class="FormCatElec" data-form="save">
+                            <form action="procesos/Khipu" method="post" role="form" class="FormCatElec" data-form="save">
                                 <?php
-                                    if(!$_SESSION['nombreUser']=="" &&!$_SESSION['claveUser']=="")
+                                    if(!$_SESSION['nombreUser'] == "" && !$_SESSION['claveUser'] == "")
                                     {
                                         $clientec = ejecutarSQL::consultar("select * from venta, cliente where venta.NIT=cliente.NIT && cliente.Usuario='".$_SESSION['nombreUser']."'");
                                         while($cliente = mysqli_fetch_array($clientec))
@@ -49,20 +49,32 @@
                                         {
                                             echo '
                                                 <h2 class="text-center">¿Confirmar pedido?</h2>
-                                                <p class="text-center">Para confirmar tu pedido presiona el botón confirmar tu pedido y proceder al pago</p>
+                                                <p class="text-center">Antes de confirmar el pedido seleciona la fecha en que quieres recoger tu pedido.</p>
+                                                <p class="text-center"><input type="date" id="fecha-recogo" name="fecha-recogo"></p>
+                                                <p class="text-center help-block">La fecha para recoger su pedido solo puede ser hasta 1 mes como maximo.</p>
                                                 <br>
                                                 <img class="img-responsive center-all-contens" src="assets/img/shopping-cart.png">
-                                                  <input type="hidden" name="clien-name" value="'.$_SESSION['nombreUser'].'">
-                                                  <input type="hidden" name="clien-pass" value="'.$_SESSION['claveUser'].'">
-                                                  <input type="hidden"  name="clien-number" value="log">
                                                 <br>
-                                                <p class="text-center"><button class="btn btn-success" type="submit">Confirmar</button></p>
+                                                <p class="text-center">Para confirmar tu pedido presiona el botón confirmar tu pedido y proceder al pago.</p>
+                                                <p class="text-center"><input type="image" src="https://s3.amazonaws.com/static.khipu.com/buttons/2015/200x75-transparent.png"></p>
                                             ';
                                         }  
                                     }
                                     else
                                     {
-                                        echo '
+                                        if($_SESSION['nombreAdmin'] != "")
+                                        {
+                                            echo '
+                                                <h1 class="text-center"><i class="fa fa-exclamation-triangle fa-4x"></i></h1>
+                                                <b><p class="text-center">
+                                                    Los supermercados no pueden hacer pedidos.
+                                                </p></b>
+                                                <br>
+                                            ';
+                                        }
+                                        else
+                                        {
+                                            echo '
                                             <h3 class="text-center">¿Confirmar el pedido?</h3>
                                             <p>
                                                 Para confirmar tu compra debes haber iniciar sesión o introducir tu nombre de usuario
@@ -70,7 +82,9 @@
                                             </p>
                                             <br>
                                         '; 
-                                    }
+                                        }
+                                        
+                                    }                                     
                                 ?>
                                 <div class="ResForm" style="width: 100%; text-align: center; margin: 0;"></div>
                             </form>
