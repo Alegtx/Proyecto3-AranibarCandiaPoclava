@@ -1,38 +1,61 @@
 <====== PENDIENTE ======>
 
-	NADA!!!!!! SOMOS LIBREEEEEEES!!!!	
+	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
 
 <====== COMPLETADO ======>
 
 	<=== Index ===>
-	-Mostrar todos los supermercados en el index.
+	- Mostrar todos los supermercados en el index.
 
 	<=== Carrito ===>
-	-Capacidad de eliminar un producto del carrito.
-	-Que el mensaje del modal cambien dependiendo si el supermercado es correcto o no.
+	- Capacidad de eliminar un producto del carrito.
+	- Que el mensaje del modal cambie dependiendo si el supermercado es correcto o no.
+	- Poner boton para mostrar historial de pedidos.
+
+	<=== Pedidos ===>
+	- Mostrar un mensaje cuando un supermercado quiera hacer un pedido.
+	- Corregir el error que no se añade correctamente los productos desde los detalles.
+	- Añadir fecha a el usuario desea que se entrege el producto.
 
 	<=== Productos ===>
-	-Capacidad de poder escribir el numero de items a comprar.
+	- Capacidad de poder escribir el numero de items a comprar.
 	- Si un supermercado esta logeado solo mostrar sus productos.
 
 	<=== Registro ===>
-	-Añadir boton de "ver password" en el formulario de registro.
-	-Formulario de registro tipo wizard.
-	-Apenas se registre el usuario debe iniciar sesion automaticamente.
+	- Añadir boton de "ver password" en el formulario de registro.
+	- Formulario de registro tipo wizard.
+	- Apenas se registre el usuario debe iniciar sesion automaticamente.
+	- Validacion de todos lo campos.
+	- El captcha se tiene que cambiar cuando hay algun error.
 
 	<=== Login ===>
 	- Quitar los check entre Admin y Usuario, comprobando ambas tablas antes de hacer el login.
-	-Añadir boton de "ver password" en el modal de login.
+	- Añadir boton de "ver password" en el modal de login.
 
 	<=== Parte administrativa ===>
-	- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
-	- Boton para mostrar los detalles del pedido en la pestaña de pedidos.
-	- Modal para cambiar la imagen de un producto en la parte de actualizar producto.
-	- No borrar las imagenes sino cambiarles el nombre.
-	- Campo de fecha/hora al momento de entregar el pedido.
+		<== Productos ==>
+		- Modal para cambiar la imagen de un producto en la parte de actualizar producto.
 
+		<== Pedidos ==>
+		- Boton para mostrar los detalles del pedido en la pestaña de pedidos.
+		- Campo de fecha/hora al momento de entregar el pedido.
+		- Al cancelar el producto mostrar un modal para mostrar las razones de cancelacion del producto.
+		- Mostrar la fecha de recogo a la que el cliente quiere recoger el producto.
+
+		<== Info ==>
+		- Capacidad de que los supermercados suban sus imagenes para que se muestren en el index.
+		- No borrar las imagenes sino cambiarles el nombre.
+	
 	<=== Base de datos ===>
-	- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha).
+		<== Registros ==>
+		- Crear una tabla con los registros que hagan los administradores (NombreAdmin, Accion, Fecha).
+		<== Venta ==>
+		- Crear un campo de fecha de entrega.
+		- Crear campo de fecha de recogo.
+		- Crear campo de motivo de cancelacion.
+
+	<=== Khipu ===>
+	- Implementar Khipu.
 
 	<=== Sistema en general ===>
-	- Hacer que el sistema puede admitir multiples supermercados.
+	- Hacer que el sistema puede admitir multiples supermercados.	
