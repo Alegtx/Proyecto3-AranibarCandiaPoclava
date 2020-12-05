@@ -216,19 +216,30 @@ $(document).ready(function() {
         return false;
     });
 
-});
+    /*Envio del formulario con Ajax para canceler categoria*/
+    $('#cancel-pedido form').submit(function(e) {
+         e.preventDefault();
+         var informacion = $('#cancel-pedido form').serialize();
+         var metodo = $('#cancel-pedido form').attr('method');
+         var peticion = $('#cancel-pedido form').attr('action');
+         $.ajax({
+            type: metodo,
+            url: peticion,
+            data:informacion,
+            beforeSend: function(){
+                $("#res-form-cancel-pedido").html('Cancelando pedido... <br><img src="assets/img/enviando.gif" class="center-all-contens">');
+            },
+            error: function() {
+                $("#res-form-cancel-pedido").html("Ha ocurrido un error en el sistema");
+            },
+            success: function (data) {
+                $("#res-form-cancel-pedido").html(data);
+            }
+        });
+        return false;
+    });
 
-function verDetallePedido(modal){
-    var options = {
-            modal: true,
-            height:300,
-            width:600
-        };
-    // Realiza la consulta al fichero php para obtener información de la BD.
-    $('#conte-modal').load('procesos/mostrarDetalle.php?nro_pedido='+modal, function() {
-        $('#modal-detalles').modal({show:true});
-    });    
-}
+});
 
 function updateImagenProducto(codigo, nombre){
     var options = {
