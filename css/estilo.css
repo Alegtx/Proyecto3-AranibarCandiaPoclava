@@ -29,9 +29,8 @@ nav{
     box-shadow: 2px 0px 7px #000;
 	z-index: 50;
 }
-
-.no-padding{
-  padding: 0px !important;
+textarea {
+  resize: none !important;
 }
 /* ========================================= Estilo Numeros ======================================*/
 input[type="number"] {
@@ -98,6 +97,12 @@ input[type=number]::-webkit-outer-spin-button {
   height: 3rem;
   font-weight: bold;
   text-align: center;
+}
+
+.hide-border{
+  border-bottom-color: #2B1D1D !important;
+  border-right-color: #2B1D1D !important;
+  border-top-color: #2B1D1D !important;
 }
 
 }
