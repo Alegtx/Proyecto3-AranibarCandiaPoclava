@@ -14,10 +14,16 @@ function getCookie(cname) {
     }
     return "";
 }
-//Cuando se muestran todos los productos
 $(document).ready(function() {
     //Cargar el php en el modal del carrito
     $('#carrito-compras-tienda').load("procesos/carrito");
+
+    //Mostrar carrito
+    $(".carrito-button-nav").click(function(){
+        $("#container-carrito-compras").animate({height: 'toggle'},200);
+    });
+
+    //Cuando se muestran todos los productos
     $(".botonCarrito").click(function(){
         //Obtener el valor del input nunmber
         var Stock = $('#stock-'+$(this).val()).val();
@@ -32,10 +38,13 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
+                $('#modal-carrito-img').html("<font color='red'><i class='fa fa-exclamation-triangle fa-5x'></i></font>");
+                $('#modal-carrito-text').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+
             }
             else{
-                $('h5').html("El producto se añadio al carrito correctamente.");
+                $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+                $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
         
@@ -45,14 +54,10 @@ $(document).ready(function() {
         $('#carrito-compras-tienda').load("procesos/carrito?CodProd="+$(this).val()+"&Cantidad="+Stock);
         $('.modal-carrito').modal('show');
     });
-    $(".carrito-button-nav").click(function(){
-        $("#container-carrito-compras").animate({height: 'toggle'},200);
-    });
-});
 
-//Cuando se filtra por categoria
-$(document).ready(function() {
-    
+
+
+    //Cuando se filtra por categoria
     $(".botonCarritoCategoria").click(function(){
         //Obtener el valor del input nunmber
         var Stock = $('#categoria-stock-'+$(this).val()).val();
@@ -67,10 +72,13 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
+                $('#modal-carrito-img').html("<font color='red'><i class='fa fa-exclamation-triangle fa-5x'></i></font>");
+                $('#modal-carrito-text').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+
             }
             else{
-                $('h5').html("El producto se añadio al carrito correctamente.");
+                $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+                $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
         
@@ -80,10 +88,8 @@ $(document).ready(function() {
         $('#carrito-compras-tienda').load("procesos/carrito?CodProd="+$(this).val()+"&Cantidad="+Stock);
         $('.modal-carrito').modal('show');
     });
-});
 
-//Cuando se filtra por supermercado
-$(document).ready(function() {
+    //Cuando se filtra por supermercado
     $(".botonCarritoSupermercado").click(function(){
         //Obtener el valor del input nunmber
         var Stock = $('#supermercado-stock-'+$(this).val()).val();
@@ -98,10 +104,13 @@ $(document).ready(function() {
         if(Cookie_Supermercado != ""){
             //Comprobar que el supermercado sea el mismo
             if(Cookie_Supermercado != Supermercado){
-                $('h5').html("<font color='red'><i class='fa fa-exclamation-triangle'></i><br>Todos los productos deben ser del mismo supermercado.</font>");
+                $('#modal-carrito-img').html("<font color='red'><i class='fa fa-exclamation-triangle fa-5x'></i></font>");
+                $('#modal-carrito-text').html("<font color='red'>Todos los productos deben ser del mismo supermercado.</font>");
+
             }
             else{
-                $('h5').html("El producto se añadio al carrito correctamente.");
+                $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+                $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
         
@@ -112,3 +121,29 @@ $(document).ready(function() {
         $('.modal-carrito').modal('show');
     });
 });
+
+function verDetallePedido(modal){
+    var options = {
+            modal: true,
+            height:300,
+            width:600
+        };
+    // Realiza la consulta al fichero php para obtener información de la BD.
+    $('#conte-modal').load('procesos/mostrarDetalle.php?nro_pedido='+modal, function() {
+        $('#modal-detalles').modal({show:true});
+    });    
+}
+
+function verHistorialPedido(modal){
+    var options = {
+            modal: true,
+            height:1200,
+            width:1200
+        };
+    // Realiza la consulta al fichero php para obtener información de la BD.
+    $('#conte-modal-historial').load('procesos/mostrarHistorial.php?usuario='+modal, function() {
+        $('#modal-historial').modal({show:true});
+    });    
+}
+
+

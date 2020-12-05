@@ -66,7 +66,15 @@
 	}
 	
 	//Imprimir la matriz
-	echo '<table class="table table-bordered">';
+	echo '
+		<table class="table table-bordered text-center">
+		<thead class="">
+			<th>Producto</th>
+			<th>Precio</th>
+			<th>Cantidad</th>			
+		</thead>
+		<tbody>
+	';
 	for($i = 0; $i < $_SESSION['contador']; $i++)
 	{
 		$consulta = ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION["productos"][$i+1][0]."'");
@@ -79,15 +87,16 @@
 	    			echo "
 						<tr>
 							<td>".$fila['NombreProd']."</td>
-							<td>".$_SESSION["productos"][$i+1][1]."</td>
+							<td>".number_format($_SESSION["productos"][$i+1][1], 2)." Bs.</td>
 							<td> x".$_SESSION["productos"][$i+1][2]."</td>
-							<td class='no-padding'>
-								<a href='procesos/quitarProductoCarrito?CodProd=".$_SESSION["productos"][$i+1][0]."' class='btn btn-danger btn-block btn-sm'><i class='fa fa-trash'></i></a>
+							<td class='hide-border'>
+								<button value='".$_SESSION["productos"][$i+1][0]."' class='btn btn-danger btn-block btn-xs botonQuitarCarrito'><i class='fa fa-trash'></i></button>
 							</td>
 						</tr>
 					";
 		    		$suma += $_SESSION["productos"][$i+1][1];
 		    		//$_SESSION['mensaje'] = "El producto se añadio al carrito correctamente.";
+		    		//<a href='procesos/quitarProductoCarrito?CodProd=".$_SESSION["productos"][$i+1][0]."' class='btn btn-danger btn-block btn-xs'><i class='fa fa-trash'></i></a>
 	    		}	
 	    	}
 	        else
@@ -99,11 +108,22 @@
 	    }
 	}
 	echo "
-		<tr>
-			<td>Subtotal</td>
-			<td>".number_format($suma, 2)." Bs.</td>
-		</tr>
-		";
-	echo "</table>";
+			<tr>
+				<td><b>Total</b></td>
+				<td>".number_format($suma, 2)." Bs.</td>
+			</tr>
+			</tbody>
+		</table>";
 	$_SESSION['sumaTotal'] = $suma;
 ?>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    //Cuando se muestran todos los productos
+	    $(".botonQuitarCarrito").click(function(){
+	        $('#carrito-compras-tienda').load("procesos/eliminarProductoCarrito?CodProd="+$(this).val());
+	    });
+	    $(".botonVaciarCarrito").click(function(){
+	        $('#carrito-compras-tienda').load("procesos/vaciarCarrito");
+	    });
+	});
+</script>

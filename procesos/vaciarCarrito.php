@@ -9,5 +9,8 @@
 	setcookie('Supermercado', "", time() - 3600, "/");
 ?>
 <script>
-    window.location = "../index";
+	$(document).ready(function() {
+	    //Cargar el php en el modal del carrito
+	    $('#carrito-compras-tienda').load("procesos/carrito");
+    });
 </script>
