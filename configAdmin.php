@@ -394,7 +394,11 @@
                   <div class="col-xs-12">
                     <br><br>
                     <div class="panel panel-info">
-                      <div class="panel-heading text-center"><i class="fa fa-refresh fa-2x"></i><h3>Actualizar estado de pedido</h3></div>
+                      <div class="panel-heading text-center">
+                        <i class="fa fa-refresh fa-2x"></i>
+                        <h3>Actualizar estado de pedido</h3>
+                        <p class="help-block">Una vez se actualize el estado del pedido no se podra volver a modificar.</p>
+                      </div>
                       <div class="table-responsive">
                         <table class="table table-bordered text-center">
                           <thead class="">
@@ -405,6 +409,7 @@
                               <th class="text-center">Total</th>
                               <th class="text-center">Estado</th>
                               <th class="text-center">Fecha de entrega</th>
+                              <th class="text-center">Fecha de recogo</th>
                               <th class="text-center">Opciones</th>
                             </tr>
                           </thead>
@@ -423,13 +428,20 @@
                                         $conUs = ejecutarSQL::consultar("select * from cliente where NIT='".$peU['NIT']."'");
                                         while($UsP = mysqli_fetch_array($conUs))
                                         {
-                                          echo $UsP['Nombre'];
+                                          echo $UsP['Nombre']." ".$UsP['Apellidos'];
                                         }
                                         echo '
                                         </td>
                                         <td>'.$peU['TotalPagar'].' Bs.</td>
-                                        <td>
-                                          <select class="form-control" name="pedido-status">';
+                                        <td>';
+                                          if($peU['Estado'] != 'Pendiente')
+                                          {
+                                            echo '<input type="text" class="form-control" readonly value="'.$peU['Estado'].'"></button>';
+                                          }
+                                          else
+                                          {
+                                            echo '
+                                            <select class="form-control" name="pedido-status">';
                                             if($peU['Estado'] == "Pendiente")
                                             {
                                               echo '<option value="Pendiente">Pendiente</option>'; 
@@ -448,12 +460,15 @@
                                               echo '<option value="Entregado">Entregado</option>';
                                               echo '<option value="Pendiente">Pendiente</option>';   
                                             }
-                                          echo '</select>
+                                            echo '</select>';
+                                          }
+                                        echo '
                                         </td>
                                         <td>'.$peU['FechaEntrega'].'</td>
+                                        <td>'.$peU['FechaRecogo'].'</td>
                                         <td class="text-center">
                                           <div onClick="verDetallePedido('."'".$peU['NumPedido']."'".')"
-                                          class="btn btn-sm btn-info">Detalle del pedido</div>&nbsp;&nbsp;&nbsp;
+                                          class="btn btn-sm btn-info">Detalle del pedido</div>
                                           <button type="submit" class="btn btn-sm btn-primary button-UPPE" value="res-update-pedido-'.$upp.'">Actualizar</button>
                                           <div id="res-update-pedido-'.$upp.'" style="width: 100%; margin:0px; padding:0px;"></div>
                                         </td>
@@ -531,25 +546,8 @@
       </div>
     </div>
   </section>
-  <!-- ==================== Modal de detalles =============== -->
-  <div class="modal fade" id="modal-detalles" role="dialog">
-    <div class="modal-dialog" role="document"> 
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><b>Detalles del pedido</b></h5>
-        </div>
-        <div class="modal-body">
-          <div id="conte-modal"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-   <!-- ==================== Fin modal de detalles =============== -->
 
-   <!-- ==================== Modal de actualizar imagen =============== -->
+  <!-- ==================== Modal de actualizar imagen =============== -->
   <div class="modal fade" id="modal-imagen" role="dialog">
     <div class="modal-dialog" role="document"> 
       <div class="modal-content">
@@ -579,6 +577,40 @@
     </div>
   </div>
    <!-- ==================== Fin modal de actualizar imagen =============== -->
+
+   <!-- ==================== Modal de motivo de cancelacion =============== -->
+  <div class="modal fade" id="modal-cancelar" role="dialog">
+    <div class="modal-dialog" role="document"> 
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><b>Motivo de cancelacion</b></h5>
+        </div>
+        <div class="modal-body">
+          <div id="conte-modal-cancelar">
+            <div class="modal-text">
+              <div id="cancel-pedido">
+                <form role="form" action="procesos/actualizarPedido" method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <div id="cancelar-descripcion"></div>
+                    <textarea id="motivo-cancelacion" name="motivo-cancelacion" class="form-control" rows="2" cols="50" maxlength="100"></textarea>
+                    <p class="help-block">(Max. 100 caracteres).</p>
+                    <input type="hidden" readonly id="cod-pedido" name="cod-pedido" value="">
+                    <input type="hidden" readonly id="estado-pedido" name="estado-pedido" value="">
+                  </div>
+                  <p class="text-center"><button type="submit" class="btn btn-danger">Cancelar pedido</button></p>
+                  <div id="res-form-cancel-pedido" style="width: 100%; text-align: center; margin: 0;"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+   <!-- ==================== Fin modal de motivo de cancelacion =============== -->
   <?php include './incluir/footer.php'; ?>
   <script type="text/javascript" src="js/previewImage.js"></script>
 </body>
