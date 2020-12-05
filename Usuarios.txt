@@ -22,3 +22,6 @@ contraseña: hola
 
 usuario: Jasonex
 contraseña: 987654
+
+usuario: Duty
+contraseña: 102030
