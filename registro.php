@@ -4,6 +4,13 @@
       <title>Registro</title>
       <?php include './incluir/link.php'; ?>
       <link rel="stylesheet" href="css/gsdk-bootstrap-wizard.css"/>
+      <style type="text/css">
+        input: invalid,
+        textarea: invalid{
+            border: 2px solid red;
+            border-radius: 4px;
+        }
+      </style>
   </head>
   <body id="container-page-registration">
     <?php include './incluir/navbar.php'; ?>
@@ -28,7 +35,7 @@
               <p style="color:#fff;" class="text-center lead">Debera de llenar todos los campos para registrarse</p>
               <!-- ==================== Wizard =============== -->
               <div class="card wizard-card" data-color="dark-red" id="wizardProfile">
-                <form class="form-horizontal FormCatElec" action="procesos/registrarCliente.php" role="form" method="post" data-form="save">
+                <form id="form-registro" class="form-horizontal FormCatElec" action="procesos/registrarCliente.php" role="form" method="post" data-form="save">
                   <div class="wizard-header">
                     <h3>
                     <small>Esta informacion nos ayuda a concocerte.</small>
@@ -53,7 +60,7 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su nombre de usuario" required name="clien-usuario" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre. Máximo 9 caracteres (solamente letras)." pattern="[a-zA-Z]{1,9}" maxlength="9">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su nombre de usuario" required name="clien-usuario" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre. Máximo 9 caracteres." pattern="[a-zA-Z]{1,9}" maxlength="9">
                             </div>
                           </div>
                           <div class="form-group">
@@ -80,19 +87,19 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su número de NIT o CI" required name="clien-nit" data-toggle="tooltip" data-placement="top" title="Ingrese su número de NIT. Solamente números y guiones(-)." maxlength="30" pattern="[0-9-]{7,30}">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su número de NIT o CI" required name="clien-nit" data-toggle="tooltip" data-placement="top" title="Ingrese su número de NIT. Solamente números." minlength="7" maxlength="30" number="[0-9-]" pattern="[0-9-]{7,30}">
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus nombres" required name="clien-nombre" data-toggle="tooltip" data-placement="top" title="Ingrese sus nombres. (solamente letras)." pattern="[a-zA-Z ]{1,50}" maxlength="50">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus nombres" required name="clien-nombre" data-toggle="tooltip" data-placement="top" title="Ingrese sus nombres." pattern="[a-zA-Z ]{1,50}" maxlength="50">
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus apellidos" required name="clien-apellidos" data-toggle="tooltip" data-placement="top" title="Ingrese sus apellidos. (solamente letras). " pattern="[a-zA-Z ]{1,50}" maxlength="50">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus apellidos" required name="clien-apellidos" data-toggle="tooltip" data-placement="top" title="Ingrese sus apellidos. " pattern="[a-zA-Z ]{1,50}" maxlength="50">
                             </div>
                           </div>
                         </div>
@@ -116,7 +123,7 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-mobile"></i></div>
-                              <input class="form-control all-elements-tooltip" type="tel" placeholder="Ingrese su número telefónico" required name="clien-phone" maxlength="11" pattern="[0-9]{8,11}" data-toggle="tooltip" data-placement="top" title="Ingrese su número telefónico. Mínimo 8 digitos máximo 11.">
+                              <input class="form-control all-elements-tooltip" type="tel" placeholder="Ingrese su número telefónico" required name="clien-phone" minlength="7" maxlength="13" number="[0-9]" pattern="[0-9]{7,13}" data-toggle="tooltip" data-placement="top" title="Ingrese su número telefónico. Mínimo 7 digitos máximo 13.">
                             </div>
                           </div>
                           <div class="form-group">
@@ -139,8 +146,8 @@
                         <div class="col-sm-8">
                           <div class="form-group">
                             <div class="input-group">
-                              <div class="input-group-addon"><img src="./captcha/Captcha.php"></div>
-                              <input class="form-control all-elements-tooltip" type="testo_captcha" placeholder="Ingrese el captcha" required name="clien-captcha" data-toggle="tooltip" data-placement="top" title="Ingrese el captcha." maxlength="50"> 
+                              <div class="input-group-addon"><img id="img-captcha" src="./captcha/Captcha.php"></div>
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese el captcha" required name="clien-captcha" data-toggle="tooltip" data-placement="top" title="Ingrese el captcha." maxlength="50"> 
                             </div>
                           </div>
                           <br>
@@ -170,6 +177,10 @@
         </div>
       </div>
     </section>
+    <script src="js/gsdk-bootstrap-wizard.js"></script>
+    <script src="js/jquery.bootstrap.wizard.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/messages_es.js"></script>
     <?php include './incluir/footer.php'; ?>
   </body>
 </html>
