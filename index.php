@@ -21,7 +21,7 @@
           <?php
             include 'conexion/configServer.php';
             include 'conexion/consultaSQL.php';
-            $consulta= ejecutarSQL::consultar("select * from administrador where Usuario != 'admin'");
+            $consulta= ejecutarSQL::consultar("select * from administrador where Usuario != 'admin' order by Usuario");
             $admins = mysqli_num_rows($consulta);
             if($admins>0)
             {
