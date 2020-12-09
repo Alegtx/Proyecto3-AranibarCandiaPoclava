@@ -181,6 +181,7 @@
         <ul class="list-unstyled text-center">
             <li><a href="index">Inicio</a></li>
             <li><a href="productos">Productos</a></li>
+            <li><a href="nosotros">Nosotros</a></li>
             <?php 
                 if(!$_SESSION['nombreAdmin'] == "")
                 {
