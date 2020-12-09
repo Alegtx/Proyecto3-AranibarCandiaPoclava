@@ -50,7 +50,7 @@
                     <br><br>
                     <div id="add-admin">
                       <h2 class="text-info text-center"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Agregar administrador</h2>
-                      <form action="procesos/registrarAdmin.php" method="post" role="form">
+                      <form action="procesos/registrarAdmin" method="post" role="form">
                         <div class="form-group">
                           <label>Nombre</label>
                           <input class="form-control" type="text" name="admin-user" placeholder="Nombre" maxlength="9" pattern="[a-zA-Z]{4,9}" required="">
@@ -69,7 +69,7 @@
                     <br><br>
                     <div id="del-admin">
                       <h2 class="text-danger text-center"><small><i class="fa fa-trash-o"></i></small>&nbsp;&nbsp;Eliminar administrador</h2>
-                      <form action="procesos/eliminarAdmin.php" method="post" role="form">
+                      <form action="procesos/eliminarAdmin" method="post" role="form">
                         <div class="form-group">
                           <label>Administradores</label>
                           <select class="form-control" name="name-admin">';
@@ -144,14 +144,16 @@
                     <br><br>
                     <div id="add-prod">
                       <h2 class="text-primary text-center"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Agregar un producto nuevo</h2>
-                      <form role="form" action="procesos/registrarProducto.php" method="post" enctype="multipart/form-data">
+                      <form id="form-add-prod" role="form" action="procesos/registrarProducto" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                           <label>Código de producto</label>
-                          <input type="text" class="form-control"  placeholder="Código" required maxlength="30" name="prod-cod">
+                          <input type="text" class="form-control"  placeholder="Código" required maxlength="30" name="prod-cod" onChange="ValidarEspacios(event, '."'botonRegistroProducto'".')">
+                          <div id="error-prod-cod"></div>
                         </div>
                         <div class="form-group">
                           <label>Nombre de producto</label>
-                          <input type="text" class="form-control"  placeholder="Nombre" required maxlength="30" name="prod-nombre">
+                          <input type="text" class="form-control"  placeholder="Nombre" required maxlength="30" name="prod-nombre" onChange="ValidarEspacios(event, '."'botonRegistroProducto'".')">
+                          <div id="error-prod-nombre"></div>
                         </div>
                         <div class="form-group">
                           <label>Categoría</label>
@@ -170,11 +172,13 @@
                         </div>
                         <div class="form-group">
                           <label>Marca</label>
-                          <input type="text" class="form-control"  placeholder="Marca" required maxlength="30" name="prod-marca">
+                          <input type="text" class="form-control"  placeholder="Marca" required maxlength="30" name="prod-marca" onChange="ValidarEspacios(event, '."'botonRegistroProducto'".')">
+                          <div id="error-prod-marca"></div>
                         </div>
                         <div class="form-group">
                           <label>Stock</label>
                           <input type="text" class="form-control"  placeholder="Stock" required maxlength="20" pattern="[0-9]{1,20}" name="prod-stock">
+                          <div id="error-prod-stock"></div>
                         </div>
                         <div class="form-group">
                           <label>Imagen de producto</label>
@@ -182,8 +186,9 @@
                           <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
                         </div>
                         <input type="hidden"  name="admin-name" value="'.$_SESSION['nombreAdmin'].'">
-                        <p class="text-center"><button type="submit" class="btn btn-primary">Agregar a la tienda</button></p>
+                        <p class="text-center"><button type="submit" id="botonRegistroProducto" class="btn btn-primary">Agregar a la tienda</button></p>
                         <div id="res-form-add-prod" style="width: 100%; text-align: center; margin: 0;"></div>
+                        <div id="errores-form" class="errores-form"></div>
                       </form>
                     </div>
                   </div>
@@ -191,7 +196,7 @@
                     <br><br>
                     <div id="del-prod-form">
                       <h2 class="text-danger text-center"><small><i class="fa fa-trash-o"></i></small>&nbsp;&nbsp;Eliminar un producto</h2>
-                      <form action="procesos/eliminarProducto.php" method="post" role="form">
+                      <form action="procesos/eliminarProducto" method="post" role="form">
                         <div class="form-group">
                           <label>Productos</label>
                           <select class="form-control" name="prod-cod">';
@@ -233,7 +238,7 @@
                             {
                               echo '
                                 <div id="update-product">
-                                  <form method="post" action="procesos/actualizarProducto.php" id="res-update-product-'.$upr.'">
+                                  <form method="post" action="procesos/actualizarProducto" id="res-update-product-'.$upr.'">
                                     <tr>
                                       <td>
                                         <input class="form-control" type="hidden" readonly name="cod-old-prod" required="" value="'.$prod['CodigoProd'].'">
@@ -298,20 +303,23 @@
                     <br><br>
                     <div id="add-categori">
                       <h2 class="text-info text-center"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Agregar categoría</h2>
-                      <form action="procesos/registrarCategoria.php" method="post" role="form">
+                      <form action="procesos/registrarCategoria" method="post" role="form">
                         <div class="form-group">
                           <label>Código</label>
-                          <input class="form-control" type="text" name="categ-cod" placeholder="Código de categoria" maxlength="9" required="">
+                          <input class="form-control" type="text" name="categ-cod" placeholder="Código de categoria" maxlength="9" required="" onChange="ValidarEspacios(event, '."'botonRegistroCategoria'".')">
+                          <div id="error-categ-cod"></div>
                         </div>
                         <div class="form-group">
                           <label>Nombre</label>
-                          <input class="form-control" type="text" name="categ-nombre" placeholder="Nombre de categoria" maxlength="30" required="">
+                          <input class="form-control" type="text" name="categ-nombre" placeholder="Nombre de categoria" maxlength="30" required="" onChange="ValidarEspacios(event, '."'botonRegistroCategoria'".')">
+                          <div id="error-categ-nombre"></div>
                         </div>
                         <div class="form-group">
                           <label>Descripción</label>
-                          <input class="form-control" type="text" name="categ-desc" placeholder="Descripcióne de categoria" required="">
+                          <input class="form-control" type="text" name="categ-desc" placeholder="Descripción de categoria" required="" onChange="ValidarEspacios(event, '."'botonRegistroCategoria'".')">
+                          <div id="error-categ-desc"></div>
                         </div>
-                        <p class="text-center"><button type="submit" class="btn btn-primary">Agregar categoría</button></p>
+                        <p class="text-center"><button type="submit" id="botonRegistroCategoria" class="btn btn-primary">Agregar categoría</button></p>
                         <br>
                         <div id="res-form-add-categori" style="width: 100%; text-align: center; margin: 0;"></div>
                       </form>
@@ -321,7 +329,7 @@
                     <br><br>
                     <div id="del-categori">
                       <h2 class="text-danger text-center"><small><i class="fa fa-trash-o"></i></small>&nbsp;&nbsp;Eliminar una categoría</h2>
-                      <form action="procesos/eliminarCategoria.php" method="post" role="form">
+                      <form action="procesos/eliminarCategoria" method="post" role="form">
                         <div class="form-group">
                           <label>Categorías</label>
                           <select class="form-control" name="categ-cod">';
@@ -360,7 +368,7 @@
                             {
                               echo '
                                 <div id="update-category">
-                                  <form method="post" action="procesos/actualizarCategoria.php" id="res-update-category-'.$ui.'">
+                                  <form method="post" action="procesos/actualizarCategoria" id="res-update-category-'.$ui.'">
                                     <tr>
                                       <td>
                                         <input class="form-control" type="hidden" name="categ-cod-old" maxlength="9" required="" value="'.$cate['CodigoCat'].'">
@@ -420,7 +428,7 @@
                             {
                               echo '
                                   <div id="update-pedido">
-                                    <form method="post" action="procesos/actualizarPedido.php" id="res-update-pedido-'.$upp.'">
+                                    <form method="post" action="procesos/actualizarPedido" id="res-update-pedido-'.$upp.'">
                                       <tr>
                                         <td>'.$peU['NumPedido'].'<input type="hidden" name="num-pedido" value="'.$peU['NumPedido'].'"></td>
                                         <td>'.$peU['Fecha'].'</td>
@@ -522,7 +530,7 @@
 
                         <div class="col-xs-12 col-sm-6 col-md-5">
                           <h2><b><p class="text-center">Despues</p></b></h2>
-                          <form role="form" action="procesos/actualizarImagenAdmin.php" method="post" enctype="multipart/form-data" id="upload-img">
+                          <form role="form" action="procesos/actualizarImagenAdmin" method="post" enctype="multipart/form-data" id="upload-img">
                             <div class="form-group">
                               <input type="file" id="img-super" name="img-super" accept="image/x-png,image/jpg,image/gif,image/jpeg">
                               <p class="help-block">Formato de imagenes admitido png, jpg, gif, jpeg.</p>
