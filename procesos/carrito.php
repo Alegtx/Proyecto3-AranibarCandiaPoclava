@@ -27,23 +27,23 @@
 	    	//Comprobar si el producto ya esta en el carrito
 	    	if($_GET['CodProd'] == $_SESSION["productos"][$i+1][0])
 	    	{
-	    		//Matriz de productos
+	    		//Añadir en la posicion si el producto existe
 				$_SESSION["productos"][$i+1][0] = $_GET['CodProd'];
 				$_SESSION["productos"][$i+1][1] += $Precio;
 				$_SESSION["productos"][$i+1][2] += $_GET['Cantidad'];
-				$Existe=true;
+				$Existe = true;
 	    	}
+	    	//Si no existe
 	    	if($i == ($_SESSION['contador']-1) && !$Existe)
 	    	{
+	    		//Si no existe añadirlo a la ultima posicion de la matriz
 				$_SESSION["productos"][$_SESSION['contador']][0] = $_GET['CodProd'];
 				$_SESSION["productos"][$_SESSION['contador']][1] += $Precio;
 				$_SESSION["productos"][$_SESSION['contador']][2] += $_GET['Cantidad'];
 	    	}
-	    }
-	   
+	    }	   
 		//PRUEBA IMPRIMIR
 		//echo $_GET['CodProd']." - ".$Precio." - ".$_GET['Cantidad']." -----";
-
 	}
 
 	//Mostrar el primer supermecado
@@ -116,7 +116,7 @@
 		</table>";
 	$_SESSION['sumaTotal'] = $suma;
 ?>
-<script type="text/javascript">
+<script>
 	$(document).ready(function(){
 	    //Cuando se muestran todos los productos
 	    $(".botonQuitarCarrito").click(function(){
