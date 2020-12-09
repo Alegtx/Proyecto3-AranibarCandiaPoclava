@@ -60,16 +60,19 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su nombre de usuario" required name="clien-usuario" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre. Máximo 9 caracteres." pattern="[a-zA-Z]{1,9}" maxlength="9">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su nombre de usuario" required name="clien-usuario" data-toggle="tooltip" data-placement="top" title="Ingrese su nombre. Máximo 9 caracteres." pattern="[a-zA-Z]{1,9}" maxlength="9" onChange="ValidarEspacios(event,'next')">
+                              <div id="error-clien-usuario"></div>
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-lock"></i></div>
-                              <input class="form-control all-elements-tooltip" id="password" type="password" placeholder="Introduzca una contraseña" required name="clien-pass" data-toggle="tooltip" data-placement="top" title="Defina una contraseña para iniciar sesión">
+                              <input class="form-control all-elements-tooltip" id="password" type="password" placeholder="Introduzca una contraseña" required name="clien-pass" data-toggle="tooltip" data-placement="top" title="Defina una contraseña para iniciar sesión" onChange="ValidarEspacios(event,'next')">
+                              <div id="error-clien-pass" ></div>
                               <div class="input-group-addon">
                                 <span id="mostrar-ocultar" style="cursor:pointer;" class="fa fa-eye"></span>
                               </div>
+
                             </div>
                           </div>
                         </div>
@@ -80,7 +83,7 @@
                     <!-- ==================== Datos personales =============== -->
                     <div class="tab-pane" id="datos">
                       <div class="row">
-                        <h4 class="info-text"> Ahora vamos con tus datos personales</h4>
+                        <h4 class="info-text"> Ahora vamos con tus datos personales.</h4>
                         <div class="col-sm-2">
                         </div>
                         <div class="col-sm-8">
@@ -93,13 +96,15 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus nombres" required name="clien-nombre" data-toggle="tooltip" data-placement="top" title="Ingrese sus nombres." pattern="[a-zA-Z ]{1,50}" maxlength="50">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus nombres" required name="clien-nombre" data-toggle="tooltip" data-placement="top" title="Ingrese sus nombres." pattern="[a-zA-Z ]{1,50}" maxlength="50" onChange="ValidarEspacios(event,'next')">
+                              <div id="error-clien-nombre"></div>
                             </div>
                           </div>
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus apellidos" required name="clien-apellidos" data-toggle="tooltip" data-placement="top" title="Ingrese sus apellidos. " pattern="[a-zA-Z ]{1,50}" maxlength="50">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese sus apellidos" required name="clien-apellidos" data-toggle="tooltip" data-placement="top" title="Ingrese sus apellidos. " pattern="[a-zA-Z ]{1,50}" maxlength="50" onChange="ValidarEspacios(event'next')">
+                              <div id="error-clien-apellidos"></div>
                             </div>
                           </div>
                         </div>
@@ -117,7 +122,8 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><i class="fa fa-home"></i></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su dirección" required name="clien-dir" data-toggle="tooltip" data-placement="top" title="Ingrese la direción en la reside actualmente" maxlength="100">
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese su dirección" required name="clien-dir" data-toggle="tooltip" data-placement="top" title="Ingrese la direción en la reside actualmente" maxlength="100" onChange="ValidarEspacios(event'next')">
+                              <div id="error-clien-dir"></div>
                             </div>
                           </div>
                           <div class="form-group">
@@ -147,12 +153,14 @@
                           <div class="form-group">
                             <div class="input-group">
                               <div class="input-group-addon"><img id="img-captcha" src="./captcha/Captcha.php"></div>
-                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese el captcha" required name="clien-captcha" data-toggle="tooltip" data-placement="top" title="Ingrese el captcha." maxlength="50"> 
+                              <input class="form-control all-elements-tooltip" type="text" placeholder="Ingrese el captcha" required name="clien-captcha" data-toggle="tooltip" data-placement="top" title="Ingrese el captcha." maxlength="6" onChange="ValidarEspacios(event, 'next')"> 
+                              <div id="error-clien-captcha"></div>
                             </div>
                           </div>
                           <br>
-                          <p><button type="submit" class="btn btn-success btn-block"><i class="fa fa-pencil"></i>&nbsp; Registrarse</button></p>
+                          <p><button type="submit" id="botonRegistro" class="btn btn-success btn-block"><i class="fa fa-pencil"></i>&nbsp; Registrarse</button></p>
                           <div class="ResForm" style="width: 100%; color: black; text-align: center; margin: 0;"></div>
+                          <div id="errores-form" class="errores-form"></div>
                         </div>
                       </div>
                     </div>
@@ -161,7 +169,7 @@
                   <!-- ==================== Wizard Footer =============== --> 
                   <div class="wizard-footer height-wizard">
                     <div class="pull-right">
-                      <input type='button' class='btn btn-next btn-fill btn-wd btn-sm btn-color' name='next' value='Siguiente'/>
+                      <input type='button' class='btn btn-next btn-fill btn-wd btn-sm btn-color' id="next" name='next' value='Siguiente'/>
                     </div>
                     <div class="pull-left">
                       <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Anterior'/>

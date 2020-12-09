@@ -63,7 +63,7 @@ $(document).ready(function() {
 $(function(){
     //Obtener la fecha minima para el input
     var fechaActual = new Date();
-    var minDate = retornarFecha(fechaActual);
+    var minDate = retornarFecha(fechaActual); 
     //Obtener la fecha maxima para el input
     // (Dias * 24 horas * 60 minutos * 60 segundos * 1000 milésimas de segundo) 
     var añadirMes = 30 * 24 * 60 * 60 * 1000; 
@@ -91,3 +91,56 @@ function retornarFecha(fecha){
     var fechaNueva = año + '-' + mes + '-' + dia;
     return fechaNueva;
 }
+$(document).ready(function(){
+    $('#botonRegistro').click(function(){
+      var formInputs = document.forms['form-registro'].getElementsByTagName("input");
+      for(let i = 0; i < formInputs.length; i++)
+      {
+        if(formInputs[i].value.trim() == "")
+        {
+          $('#errores-form').html("<font color='red'><p class='text-center'>Los campos no pueden estar en blanco.</p></font>");
+        }
+      }
+    });
+    $('#botonRegistroProducto').click(function(){
+      var formInputs = document.forms['form-add-prod'].getElementsByTagName("input");
+      for(let i = 0; i < formInputs.length; i++)
+      {
+        if(formInputs[i].value.trim() == "")
+        {
+          $('#errores-form').html("<font color='red'><p class='text-center'>Los campos no pueden estar en blanco.</p></font>");
+        }
+      }
+    });
+});
+function ValidarEspacios(e, button)
+{
+    if(e.target.value.trim() == "")
+    {
+      e.target.focus();
+      $('#error-' + e.target.name).html("<font color='red'>El campo no puede estar en blanco.</font>");
+      $('#' + button).attr("disabled", true);
+      $('#botonRegistro').attr("disabled", true);  
+    }
+    else
+    {
+        $('#error-' + e.target.name).html("");
+        $('#' + button).attr("disabled", false);
+        $('#botonRegistro').attr("disabled", false);
+    }
+}
+function buscarProducto() {
+    var textoBusqueda = $("input#texto-busqueda").val();
+    if (textoBusqueda != "" && textoBusqueda.trim() != "")
+    {
+        $.post("procesos/buscarProducto.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+            $("#resultado-busqueda").html(mensaje);
+            $('#myTabContent').hide();
+        }); 
+    }
+    else
+    { 
+        $("#resultado-busqueda").html('');
+        $('#myTabContent').show();
+    };
+};
