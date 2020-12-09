@@ -1,6 +1,10 @@
 <====== PENDIENTE ======>
 
-	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
+	<=== Pedidos ===>
+	-Añadir hora en el campo de recogo.
+
+	<=== Carrito ===>
+	-Poder definir cuantos productos se quiere eliminar.
 
 <====== COMPLETADO ======>
 
@@ -25,7 +29,7 @@
 	- Añadir boton de "ver password" en el formulario de registro.
 	- Formulario de registro tipo wizard.
 	- Apenas se registre el usuario debe iniciar sesion automaticamente.
-	- Validacion de todos lo campos.
+	- Validacion de todos lo campos que no se ponga ningun dato.
 	- El captcha se tiene que cambiar cuando hay algun error.
 
 	<=== Login ===>
@@ -58,4 +62,9 @@
 	- Implementar Khipu.
 
 	<=== Sistema en general ===>
-	- Hacer que el sistema puede admitir multiples supermercados.	
+	- Hacer que el sistema puede admitir multiples supermercados.
+
+
+
+
+	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
