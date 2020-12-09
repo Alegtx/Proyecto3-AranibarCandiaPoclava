@@ -12,14 +12,21 @@
     
     if($estadoPedidoNew == 'Cancelado')
     {
-        echo "
-            <script>
-                $('#modal-cancelar').modal({show:true});
-                $('#cancelar-descripcion').html('<b>Escriba el motivo de cancelacion del pedido: </b>".$numeroPedido."');
-                $('#cod-pedido').val('".$numeroPedido."');
-                $('#estado-pedido').val('".$estadoPedidoNew."');
-            </script>
-            ";
+        $totalpedidos = ejecutarSQL::consultar("select * from venta");
+        while($pedido = mysqli_fetch_array($totalpedidos)){
+            $totalclientes = ejecutarSQL::consultar("select * from cliente where NIT = '".$pedido['NIT']."'");
+            while($cliente = mysqli_fetch_array($totalclientes))
+            {
+                echo "
+                <script>
+                    $('#modal-cancelar').modal({show:true});
+                    $('#cancelar-descripcion').html('<b>Pedido N°: </b>".$numeroPedido."<br><b>Cliente: </b>".$cliente['Nombre']." ".$cliente['Apellidos']."<br><b>Escriba el motivo de cancelacion: </b>');
+                    $('#cod-pedido').val('".$numeroPedido."');
+                    $('#estado-pedido').val('".$estadoPedidoNew."');
+                </script>
+                ";
+            }
+        }
     }
     else
     {
