@@ -17,6 +17,14 @@
           <h1>Tienda <small class="tittles-pages-logo">Shopon-line</small></h1>
         </div>
         <br><br>
+        <form method="post">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input id="texto-busqueda" class="form-control all-elements-tooltip" type="text-center" placeholder="Busca un producto." autocomplete="off" onKeyUp="buscarProducto();">
+            </div>
+          </div> 
+        </form>
         <div class="row">
           <div class="col-xs-12">
             <ul id="store-links" class="nav nav-tabs" role="tablist">
@@ -61,6 +69,7 @@
                 }
               ?>
             </ul>
+            <div id="resultado-busqueda"></div>
             <!-- ==================== Contenedor de todos los productos =============== -->
             <div id="myTabContent" class="tab-content">
               <div role="tabpanel" class="tab-pane fade" id="all-product" aria-labelledby="all-product-tab">
@@ -211,7 +220,7 @@
                         {
                           echo '<h2>Este supermercado no tiene productos.</h2>'; 
                         }
-                  echo '</div>'; 
+                  echo '</div>';
                 }
               ?>
               <!-- ==================== Fin contenedores de supermercados =============== -->
