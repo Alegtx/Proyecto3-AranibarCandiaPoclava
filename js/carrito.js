@@ -47,6 +47,10 @@ $(document).ready(function() {
                 $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
+        else{
+            $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+            $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
+        }
         
         //alert(Supermercado+" - "+Cookie_Supermercado);
 
@@ -81,6 +85,10 @@ $(document).ready(function() {
                 $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
+        else{
+            $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+            $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
+        }
         
         //alert(Supermercado+" - "+Cookie_Supermercado);
 
@@ -113,6 +121,10 @@ $(document).ready(function() {
                 $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
             }
         }
+        else{
+            $('#modal-carrito-img').html("<i class='fa fa-shopping-cart fa-5x'></i>");
+            $('#modal-carrito-text').html("El producto se añadio al carrito correctamente.");
+        }
         
         //alert(Supermercado+" - "+Cookie_Supermercado);
 
@@ -128,8 +140,8 @@ function verDetallePedido(modal){
             height:300,
             width:600
         };
-    // Realiza la consulta al fichero php para obtener información de la BD.
-    $('#conte-modal').load('procesos/mostrarDetalle.php?nro_pedido='+modal, function() {
+        // Realiza la consulta al fichero php para obtener información de la BD.
+        $('#conte-modal').load('procesos/mostrarDetalle.php?nro_pedido='+modal, function() {
         $('#modal-detalles').modal({show:true});
     });    
 }
@@ -140,8 +152,8 @@ function verHistorialPedido(modal){
             height:1200,
             width:1200
         };
-    // Realiza la consulta al fichero php para obtener información de la BD.
-    $('#conte-modal-historial').load('procesos/mostrarHistorial.php?usuario='+modal, function() {
+        // Realiza la consulta al fichero php para obtener información de la BD.
+        $('#conte-modal-historial').load('procesos/mostrarHistorial.php?usuario='+modal, function() {
         $('#modal-historial').modal({show:true});
     });    
 }
