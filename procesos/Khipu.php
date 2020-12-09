@@ -8,23 +8,19 @@
 	{
 		if($fechaRecogo != "")
 	    {	
-
 	    	//Obtener datos del cliente.
 	    	$verdata = ejecutarSQL::consultar("select * from cliente where Usuario='".$_SESSION['nombreUser']."'");
 			$data = mysqli_fetch_array($verdata);
 			$nitC = $data['NIT'];
-			$verId = ejecutarSQL::consultar("select * from venta where NIT='".$nitC."' order by NumPedido desc limit 1");
+			$verId = ejecutarSQL::consultar("select * from venta order by NumPedido desc limit 1");
 			while($fila = mysqli_fetch_array($verId))
 			{
 			  $Numpedido = $fila['NumPedido'] + 1;
 			}
 	    	$_SESSION['fechaRecogo'] = $fechaRecogo;
 
-	    	// Llenamos los parametros
-			$receiver_id = '354062';
-			$subject = 'PEDIDO N°: '.$Numpedido;
-
-			$ContenidoCarrito = "";
+	    	//Llenar el texto con los detalles de compra
+	    	$ContenidoCarrito = "";
 			for ($i = 0; $i < $_SESSION['contador']; $i++) 
 	    	{ 
 	    		$consulta = ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION["productos"][$i+1][0]."'");
@@ -34,13 +30,16 @@
 				}
 			}
 
+	    	// Llenamos los parametros
+			$receiver_id = '354062';
+			$subject = 'PEDIDO N°: '.$Numpedido;
 			$body = $ContenidoCarrito;
-			$amount = $_SESSION['sumaTotal'];
-			$notify_url = 'http://localhost/Shopon-line/procesos/confirmarCompra';
+			$amount = str_replace('.',',',$_SESSION['sumaTotal']);
+			$notify_url = '';
 			$return_url = 'http://localhost/Shopon-line/procesos/confirmarCompra';
 			$cancel_url = '';
-			$transaction_id = 'T-1000';
-			$expires_date = time() + 30*24*60*60; //treinta dias a partir de ahora
+			$transaction_id = 'SHOPON-'.$Numpedido;
+			$expires_date = time() + (30 * 24 * 60 * 60); //30 dias a partir de ahora
 			$payer_email = 'shopon-line@gmail.com';
 			$bank_id='';
 			$picture_url = '';
@@ -70,7 +69,7 @@
 				<input type="hidden" name="picture_url" value="'.$picture_url.'">
 				<input type="hidden" name="hash" value="'.$hash.'">
 				</form>
-				 <script>
+				<script>
 				    submitform();
 				    function submitform()
 				    {
