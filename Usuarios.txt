@@ -12,6 +12,9 @@ contraseña: 123456
 usuario: Hipermaxi
 contraseña: hola
 
+usuario: TodoFacil
+contraseña: gastronomia
+
 ---USUARIOS--
 
 usuario: alegtx
@@ -25,3 +28,6 @@ contraseña: 987654
 
 usuario: Duty
 contraseña: 102030
+
+usuario: Carlit0s
+contraseña: univalle20
