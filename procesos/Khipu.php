@@ -30,13 +30,18 @@
 				}
 			}
 
+			//Generar una llaver para validar
+			unset($_SESSION['hash']);
+			$_SESSION['hash'] = hash_hmac('sha256', $Numpedido.date("Y-m-d_H.i.s"), '10c44368986151d885b286cd8de65a7735ced448');
+			echo $_SESSION['hash'];
+
 	    	// Llenamos los parametros
 			$receiver_id = '354062';
 			$subject = 'PEDIDO N°: '.$Numpedido;
 			$body = $ContenidoCarrito;
 			$amount = str_replace('.',',',$_SESSION['sumaTotal']);
 			$notify_url = '';
-			$return_url = 'http://localhost/Shopon-line/procesos/confirmarCompra';
+			$return_url = 'http://localhost/Shopon-line/procesos/confirmarCompra?hash='.$_SESSION['hash'];
 			$cancel_url = '';
 			$transaction_id = 'SHOPON-'.$Numpedido;
 			$expires_date = time() + (30 * 24 * 60 * 60); //30 dias a partir de ahora
@@ -52,6 +57,7 @@
 			$concatenated = "receiver_id=$receiver_id&subject=$subject&body=$body&amount=$amount&payer_email=$payer_email&bank_id=$bank_id&expires_date=$expires_date&transaction_id=$transaction_id&custom=$custom&notify_url=$notify_url&return_url=$return_url&cancel_url=$cancel_url&picture_url=$picture_url";
 
 			$hash = hash_hmac('sha256', $concatenated , $secret);
+
 			echo '
 				<form name="myForm" id="myForm" action="'.$khipu_url.'" method="post">
 				<input type="hidden" name="receiver_id" value="'.$receiver_id.'">
@@ -73,7 +79,7 @@
 				    submitform();
 				    function submitform()
 				    {
-				      document.myForm.submit();
+				      //document.myForm.submit();
 				    }
 				</script>
 			';

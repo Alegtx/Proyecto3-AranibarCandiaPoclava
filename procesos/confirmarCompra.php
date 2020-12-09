@@ -26,48 +26,62 @@
                 $_SESSION["productos"][X][1] = Precio
                 $_SESSION["productos"][X][2] = Cantidad
               */
-              session_start(); 
-              error_reporting(E_PARSE);
-              include '../conexion/configServer.php';
-              include '../conexion/consultaSQL.php';
-              sleep(3);
-              $verdata = ejecutarSQL::consultar("select * from cliente where Usuario='".$_SESSION['nombreUser']."'");
-              $data = mysqli_fetch_array($verdata);
-              $nitC = $data['NIT'];
-              $StatusV = "Pendiente";
-              
-              //Insertando datos en tabla venta
-              consultasSQL::InsertSQL("venta", "NIT, TotalPagar, Estado, NombreAdmin, FechaRecogo", "'".$nitC."','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."', '".$_SESSION['fechaRecogo']."'");
-              
-              //Recuperando el número del pedido actual
-              $verId = ejecutarSQL::consultar("select * from venta where NIT='$nitC' order by NumPedido desc limit 1");
-              while($fila = mysqli_fetch_array($verId))
-              {
-                $Numpedido = $fila['NumPedido'];
-              }
-              //Insertando datos en detalle de la venta
-              for($i = 0;$i < $_SESSION['contador'];$i++)
-              {
-                if($_SESSION['productos'][$i+1][0] != "")
-                {
-                  consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos", "'$Numpedido', '".$_SESSION['productos'][$i+1][0]."', '".$_SESSION['productos'][$i+1][2]."'");
+              session_start();
+              /*echo "GET: ".$_GET['hash'];
+              echo "<br>SESSION: ".$_SESSION['hash'];*/
 
-                  //Restando un stock a cada producto seleccionado en el carrito
-                  $prodStock = ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
-                  while($fila = mysqli_fetch_array($prodStock))
+              //Comprobar que las variables que no sean nulas
+              if(isset($_SESSION['supermercado']) && isset($_SESSION['productos']) && isset($_SESSION['hash']) && isset($_GET['hash']))
+              {
+                //Comporbar que el hash sea correcto
+                if($_SESSION['supermercado'] != "" && ($_SESSION['hash'] == $_GET['hash']))
+                {
+                  error_reporting(E_PARSE);
+                  include '../conexion/configServer.php';
+                  include '../conexion/consultaSQL.php';
+
+                  //Obtener nit del cliente
+                  $verdata = ejecutarSQL::consultar("select * from cliente where Usuario='".$_SESSION['nombreUser']."'");
+                  $data = mysqli_fetch_array($verdata);
+                  $nitC = $data['NIT'];
+                  $StatusV = "Pendiente";
+                  
+                  //Insertando datos en tabla venta
+                  consultasSQL::InsertSQL("venta", "NIT, TotalPagar, Estado, NombreAdmin, FechaRecogo", "'".$nitC."','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."', '".$_SESSION['fechaRecogo']."'");
+                  
+                  //Obtener el numero del pedido actual
+                  $verId = ejecutarSQL::consultar("select * from venta where NIT='$nitC' order by NumPedido desc limit 1");
+                  while($fila = mysqli_fetch_array($verId))
                   {
-                      $existencias = $fila['Stock'];
-                      consultasSQL::UpdateSQL("producto", "Stock=('$existencias'-".$_SESSION['productos'][$i+1][2].")", "CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
+                    $Numpedido = $fila['NumPedido'];
                   }
-                }   
+                  
+                  //Insertando datos en detalle de la venta
+                  for($i = 0;$i < $_SESSION['contador'];$i++)
+                  {
+                    if($_SESSION['productos'][$i+1][0] != "")
+                    {
+                      consultasSQL::InsertSQL("detalle", "NumPedido, CodigoProd, CantidadProductos", "'$Numpedido', '".$_SESSION['productos'][$i+1][0]."', '".$_SESSION['productos'][$i+1][2]."'");
+
+                      //Restando un stock a cada producto seleccionado en el carrito
+                      $prodStock = ejecutarSQL::consultar("select * from producto where CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
+                      while($fila = mysqli_fetch_array($prodStock))
+                      {
+                          $existencias = $fila['Stock'];
+                          consultasSQL::UpdateSQL("producto", "Stock=('$existencias'-".$_SESSION['productos'][$i+1][2].")", "CodigoProd='".$_SESSION['productos'][$i+1][0]."'");
+                      }
+                    }   
+                  }
+                }
               }
-              /*Vaciando el carrito*/
+              //Vaciar carrito
               unset($_SESSION['productos']);
               unset($_SESSION['contador']);
               unset($_SESSION['supermercado']);
+              unset($_SESSION['hash']);
               echo '
                 <script>
-                  window.location = "../index";
+                  //window.location = "../index";
                 </script>
                 ';
             ?>
