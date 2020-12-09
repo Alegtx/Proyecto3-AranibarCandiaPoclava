@@ -17,13 +17,15 @@
          <div class="contenedor-tabla">
             <div class="contenedor-tr">
               <div class="table-cell-td-noline">
-                <h2>Shopon-line</h2>
-                  <p>Shopon-line es un supermercado que cuenta con productos clasificados,diversas secciones para que el cliente obtenga lo que busca.</p>
+                <h4 class="text-center tittles-pages-logo">Shopon-line</h4>
+                  <p>
+                    <small class="tittles-pages-logo">Shopon-line</small>  es un supermercado que cuenta con productos clasificados,diversas secciones para que el cliente obtenga lo que busca.
+                  </p>
               </div>
               <div class="table-cell-td">
                 <h2>Sucursales</h2>
                 <p>
-                  Shopon-line es la cadena mas mas grande del pais,contamos mas de 100 locales a nivel nacional en las que ofremos los profuctos para satisfacer todas las necesidades de nuestros clientes.
+                  <small class="tittles-pages-logo">Shopon-line</small> es la cadena mas mas grande del pais,contamos mas de 100 locales a nivel nacional en las que ofremos los profuctos para satisfacer todas las necesidades de nuestros clientes.
                 </p>
               </div>
             </div>
@@ -38,7 +40,7 @@
             <div class="contenedor-tr text-center">
               <h2>Terminos y condiciones</h2>
                 <p>
-                  Los derechos de propiedad intelectual respecto de los contenidos, así como los derechos de uso y explotación de los mismos, incluyendo su divulgación, publicación, reproducción, distribución y transformación, son propiedad exclusiva de Supermercado Univalle. El usuario no podrá utilizar los contenidos de este sitio web con fines distintos a los que se contemplan en los presentes Términos y Condiciones de Uso y Privacidad.
+                  Los derechos de propiedad intelectual respecto de los contenidos, así como los derechos de uso y explotación de los mismos, incluyendo su divulgación, publicación, reproducción, distribución y transformación, son propiedad exclusiva de <small class="tittles-pages-logo">Shopon-line</small>. El usuario no podrá utilizar los contenidos de este sitio web con fines distintos a los que se contemplan en los presentes Términos y Condiciones de Uso y Privacidad.
                   El supermercado, ni sus empresas asociadas, proveedores o socios comerciales serán responsables de cualquier daño o perjuicio que sufra el usuario a consecuencia de inexactitudes.
                 </p>
             </div>
