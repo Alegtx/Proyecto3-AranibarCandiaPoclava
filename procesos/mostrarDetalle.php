@@ -2,11 +2,19 @@
     include '../conexion/configServer.php';
     include '../conexion/consultaSQL.php';
 
+    session_start();
     $totalpedidos = ejecutarSQL::consultar("select * from detalle where NumPedido='".$_GET["nro_pedido"]."'");
     echo "<h4><b>Pedido N°:&nbsp;&nbsp;&nbsp;".$_GET["nro_pedido"]."</b></h4>";
     $totalventas = ejecutarSQL::consultar("select * from venta where NumPedido='".$_GET["nro_pedido"]."'");
 	while ($venta = mysqli_fetch_array($totalventas))
 	{
+		if(isset($_SESSION['nombreUser']))
+		{
+			if($_SESSION['nombreUser'] != "")
+			{
+				echo "<b>Supermercado: </b>".$venta['NombreAdmin']."<br>";
+			}
+		}
 		echo "<b>Estado: </b>".$venta['Estado']."<br>";
 		if($venta['MotivoCancelacion'] != "-")
 		{
