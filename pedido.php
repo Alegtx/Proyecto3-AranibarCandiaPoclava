@@ -49,10 +49,15 @@
                                         {
                                             echo '
                                                 <h2 class="text-center">¿Confirmar pedido?</h2>
-                                                <p class="text-center">Antes de confirmar el pedido seleciona la fecha en que quieres recoger tu pedido.</p>
-                                                <p class="text-center"><input type="date" id="fecha-recogo" name="fecha-recogo"></p>
-                                                <p class="text-center help-block">La fecha para recoger su pedido solo puede ser hasta 1 mes como maximo.</p>
-                                                <br>
+                                                <p class="text-center">
+                                                    Primero seleciona la fecha en que quieres recoger tu pedido.<br>
+                                                    <input type="date" id="fecha-recogo" name="fecha-recogo" required>
+                                                </p>
+                                                <p class="text-center help-block"><small>La fecha para recoger su pedido solo puede ser hasta 1 mes como maximo.</small></p>
+                                                <p class="text-center">
+                                                    Y para concluir la hora a la que lo quieres recoger.<br>
+                                                    <input type="time" id="hora-recogo" name="hora-recogo" min="08:00" max="22:00" required>
+                                                </p><br>
                                                 <img class="img-responsive center-all-contens" src="assets/img/shopping-cart.png">
                                                 <br>
                                                 <p class="text-center">Para confirmar tu pedido presiona el botón confirmar tu pedido y proceder al pago.</p>

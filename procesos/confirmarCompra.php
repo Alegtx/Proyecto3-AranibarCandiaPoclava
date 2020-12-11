@@ -46,8 +46,9 @@
                   $nitC = $data['NIT'];
                   $StatusV = "Pendiente";
                   
+                  $fechaRecogo = $_SESSION['fechaRecogo']." ".$_SESSION['horaRecogo'];
                   //Insertando datos en tabla venta
-                  consultasSQL::InsertSQL("venta", "NIT, TotalPagar, Estado, NombreAdmin, FechaRecogo", "'".$nitC."','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."', '".$_SESSION['fechaRecogo']."'");
+                  consultasSQL::InsertSQL("venta", "NIT, TotalPagar, Estado, NombreAdmin, FechaRecogo", "'".$nitC."','".$_SESSION['sumaTotal']."','".$StatusV."','".$_SESSION['supermercado']."', '".$fechaRecogo."'");
                   
                   //Obtener el numero del pedido actual
                   $verId = ejecutarSQL::consultar("select * from venta where NIT='$nitC' order by NumPedido desc limit 1");

@@ -4,9 +4,10 @@
   	include '../conexion/consultaSQL.php';
 	sleep(3);
 	$fechaRecogo = $_POST['fecha-recogo'];
-	if($_SESSION['sumaTotal'] > 0)
+	$horaRecogo = $_POST['hora-recogo'];
+	if(isset($_SESSION['sumaTotal']))
 	{
-		if($fechaRecogo != "")
+		if($fechaRecogo != "" && $horaRecogo != "")
 	    {	
 	    	//Obtener datos del cliente.
 	    	$verdata = ejecutarSQL::consultar("select * from cliente where Usuario='".$_SESSION['nombreUser']."'");
@@ -17,7 +18,10 @@
 			{
 			  $Numpedido = $fila['NumPedido'] + 1;
 			}
+			
+			//Establecer variables para el recogo del pedido
 	    	$_SESSION['fechaRecogo'] = $fechaRecogo;
+	    	$_SESSION['horaRecogo'] = $horaRecogo;
 
 	    	//Llenar el texto con los detalles de compra
 	    	$ContenidoCarrito = "";
@@ -33,7 +37,7 @@
 			//Generar una llaver para validar
 			unset($_SESSION['hash']);
 			$_SESSION['hash'] = hash_hmac('sha256', $Numpedido.date("Y-m-d_H.i.s"), '10c44368986151d885b286cd8de65a7735ced448');
-			echo $_SESSION['hash'];
+			//echo $_SESSION['hash'];
 
 	    	// Llenamos los parametros
 			$receiver_id = '354062';
@@ -86,7 +90,7 @@
 	    }
     else
     {
-      echo '<img src="assets/img/error.png" class="center-all-contens"><br>Por favor especifique la fecha en que desea recoger su pedido';
+      echo '<img src="assets/img/error.png" class="center-all-contens"><br>Por favor especifique la fecha y horas en la que desea recoger su pedido';
     }
   }
   else
