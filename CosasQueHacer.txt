@@ -1,11 +1,7 @@
 <====== PENDIENTE ======>
 
-	<=== Pedidos ===>
-	-Añadir hora en el campo de recogo.
-
-	<=== Carrito ===>
-	-Poder definir cuantos productos se quiere eliminar.
-
+	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
+	
 <====== COMPLETADO ======>
 
 	<=== Index ===>
@@ -15,11 +11,13 @@
 	- Capacidad de eliminar un producto del carrito.
 	- Que el mensaje del modal cambie dependiendo si el supermercado es correcto o no.
 	- Poner boton para mostrar historial de pedidos.
+	-Poder definir cuantos productos se quiere eliminar.
 
 	<=== Pedidos ===>
 	- Mostrar un mensaje cuando un supermercado quiera hacer un pedido.
 	- Corregir el error que no se añade correctamente los productos desde los detalles.
-	- Añadir fecha a el usuario desea que se entrege el producto.
+	- Añadir fecha a la que el usuario desea que se entrege el producto.
+	- Añadir hora a la que el usuario desea que se entrege el producto.
 
 	<=== Productos ===>
 	- Capacidad de poder escribir el numero de items a comprar.
@@ -63,8 +61,3 @@
 
 	<=== Sistema en general ===>
 	- Hacer que el sistema puede admitir multiples supermercados.
-
-
-
-
-	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
