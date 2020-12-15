@@ -51,7 +51,7 @@
                                                 <h2 class="text-center">¿Confirmar pedido?</h2>
                                                 <p class="text-center">
                                                     Primero seleciona la fecha en que quieres recoger tu pedido.<br>
-                                                    <input type="date" id="fecha-recogo" name="fecha-recogo" required>
+                                                    <input type="date" id="fecha-recogo" name="fecha-recogo" required onChange="cambiarHoraMinima()">
                                                 </p>
                                                 <p class="text-center help-block"><small>La fecha para recoger su pedido solo puede ser hasta 1 mes como maximo.</small></p>
                                                 <p class="text-center">
