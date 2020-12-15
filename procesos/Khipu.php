@@ -83,7 +83,7 @@
 				    submitform();
 				    function submitform()
 				    {
-				      //document.myForm.submit();
+				      	document.myForm.submit();
 				    }
 				</script>
 			';
