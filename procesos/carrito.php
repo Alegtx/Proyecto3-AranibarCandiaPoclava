@@ -38,8 +38,8 @@
 	    	{
 	    		//Si no existe añadirlo a la ultima posicion de la matriz
 				$_SESSION["productos"][$_SESSION['contador']][0] = $_GET['CodProd'];
-				$_SESSION["productos"][$_SESSION['contador']][1] += $Precio;
-				$_SESSION["productos"][$_SESSION['contador']][2] += $_GET['Cantidad'];
+				$_SESSION["productos"][$_SESSION['contador']][1] = $Precio;
+				$_SESSION["productos"][$_SESSION['contador']][2] = $_GET['Cantidad'];
 	    	}
 	    }	   
 		//PRUEBA IMPRIMIR
