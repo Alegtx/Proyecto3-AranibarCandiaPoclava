@@ -16,14 +16,15 @@
 		$CodigoProducto = $_GET['CodProd'];
 		$Accion = $_GET['Accion'];
 		//echo $CodigoProducto;
+
+		//Obtener el stock maximo
+		$verdata = ejecutarSQL::consultar("select * from producto where CodigoProd='".$CodigoProducto."'");
+	    $data = mysqli_fetch_array($verdata);
+	    $Stock = $data['Stock'];
+
 		switch ($Accion) 
 		{
 			case 'Aumentar':
-				//Obtener el stock maximo
-				$verdata = ejecutarSQL::consultar("select * from producto where CodigoProd='".$CodigoProducto."'");
-	            $data = mysqli_fetch_array($verdata);
-	            $Stock = $data['Stock'];
-
 	            //Recorrer matriz
 	            for ($i = 0; $i < $_SESSION['contador']; $i++) 
 				{ 
@@ -33,7 +34,10 @@
 						//Comprobar que la cantidad sea menor que el stock
 						if($_SESSION["productos"][$i+1][2] < $Stock)
 						{
+							//Aumentar el precio, cantidad y el total
+							$_SESSION["productos"][$i+1][1] += $data['Precio'];
 							$_SESSION["productos"][$i+1][2] += 1;
+							$_SESSION['sumaTotal'] += $data['Precio'];
 						}
 					}
 	            }
@@ -41,7 +45,6 @@
 			
 			case 'Disminuir':
 				$Vacio = 0;
-
 				//Recorrer matriz
 				for ($i = 0; $i < $_SESSION['contador']; $i++) 
 				{ 
@@ -58,7 +61,10 @@
 						//Si la cantidad no es uno restar la cantidad
 						else
 						{
+							//Disminuir el precio, cantidad y el total
+							$_SESSION["productos"][$i+1][1] -= $data['Precio'];
 							$_SESSION["productos"][$i+1][2] -= 1;
+							$_SESSION['sumaTotal'] -= $data['Precio'];
 						}
 						
 					}
