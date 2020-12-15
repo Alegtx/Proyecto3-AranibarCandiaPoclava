@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 05-12-2020 a las 03:04:14
+-- Tiempo de generación: 15-12-2020 a las 01:49:28
 -- Versión del servidor: 5.7.31
 -- Versión de PHP: 7.3.21
 
@@ -41,8 +41,9 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 INSERT INTO `administrador` (`Usuario`, `Clave`, `Imagen`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', ''),
 ('Ketal', '4badaee57fed5610012a296273158f5f', '2020-11-27_19.59.06_KETAL.png'),
-('Fidalga', 'e10adc3949ba59abbe56e057f20f883e', 'default-shopon-line.png'),
-('Hipermaxi', '4d186321c1a7f0f354b297e8914ab240', 'default-shopon-line.png');
+('Fidalga', 'e10adc3949ba59abbe56e057f20f883e', '2020-12-07_04.29.13_FIDALGA-LOGO.png'),
+('Hipermaxi', '4d186321c1a7f0f354b297e8914ab240', '2020-12-07_04.28.31_HIPERMAXI-LOGO.png'),
+('TodoFacil', 'c8ccbd8ea45ad1f3cba295233a1206b9', '2020-12-07_05.42.58_TODO-FACIL-LOGO.jpg');
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,8 @@ INSERT INTO `categoria` (`CodigoCat`, `Nombre`, `Descripcion`) VALUES
 ('CAT-003', 'Bebidas, Licores Y Tabacos', 'Ron, Coca Cola, Camel,etc'),
 ('CAT-004', 'Chocolates, Dulces y Galletas', 'Oreo, Chubi, etc'),
 ('CAT-005', 'Panaderia y Pasteleria', 'Pan molde, Queque, Tostada, etc'),
-('CAT-006', 'Cuidado Personal', 'Shampoo, Cepillo, Jabon, etc');
+('CAT-006', 'Cuidado Personal', 'Shampoo, Cepillo, Jabon, etc'),
+('CAT-007', 'Abarrotes', 'Aceites, Cereales, Condimentos, etc.');
 
 -- --------------------------------------------------------
 
@@ -84,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Clave` text NOT NULL,
   `Direccion` varchar(200) NOT NULL,
   `Telefono` int(20) NOT NULL,
-  `Email` varchar(30) NOT NULL
+  `Email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -95,7 +97,9 @@ INSERT INTO `cliente` (`NIT`, `Usuario`, `Nombre`, `Apellidos`, `Clave`, `Direcc
 ('6962296', 'Alegtx', 'Alejandro', 'Aranibar', '24e646123f3da203f7fb7437e06112e9', 'Av. Busch', 67141109, 'alejandroa453@mail.com'),
 ('14489245', 'cheito', 'Sergio Ariel', 'Candia Barriga', '4d186321c1a7f0f354b297e8914ab240', 'La Paz, Avenida Bush', 70167309, 'cheito2673@gmail.com'),
 ('1527788', 'Jasonex', 'Jeison', 'Zabaleta', '6c44e5cd17f0019c64b042e4a745412a', 'Villa el carmen', 67142360, 'a@a.com'),
-('1695048', 'Duty', 'Alejandro', 'Machaca Piza', '4badaee57fed5610012a296273158f5f', 'Villa Copacabana', 67117320, 'duty@gmail.com');
+('1695048', 'Duty', 'Alejandro', 'Machaca Piza', '4badaee57fed5610012a296273158f5f', 'Villa Copacabana', 67117320, 'duty@gmail.com'),
+('6666666', 'asd', 'asd', 'asd', '7815696ecbf1c96e6894b779456d330e', 'asd', 67142360, 'a@a.com'),
+('6565221', 'Carlit0s', 'Carlos Javier', 'Zabala Sanches', '5be823b7efca66fa5fc81d287a38ee6b', 'Av. Argentina, esquina Brasil', 68951001, 'shoponLine_support@univalle.edu');
 
 -- --------------------------------------------------------
 
@@ -163,7 +167,13 @@ INSERT INTO `detalle` (`NumPedido`, `CodigoProd`, `CantidadProductos`) VALUES
 (21, 'KET-006', 3),
 (23, 'KET-011', 3),
 (23, 'KET-002', 3),
-(23, 'KET-015', 7);
+(23, 'KET-015', 7),
+(24, 'FID-007', 2),
+(24, 'FID-015', 3),
+(24, 'FID-013', 2),
+(25, 'KET-012', 4),
+(25, 'KET-014', 10),
+(25, 'KET-015', 5);
 
 -- --------------------------------------------------------
 
@@ -199,26 +209,27 @@ INSERT INTO `producto` (`CodigoProd`, `NombreProd`, `CodigoCat`, `Precio`, `Marc
 ('KET-009', 'Chorizo Parrillero 500Gr', 'CAT-002', '29.90', 'Osfim', 36, 'chorizo.jpg', 'Ketal'),
 ('KET-010', 'Mortadela Cervecero 140 Gr', 'CAT-002', '20.50', 'Stege', 24, 'mortadela.jpg', 'Ketal'),
 ('KET-011', 'Ades Manzana 1L', 'CAT-003', '10.00', 'Ades', 73, 'ades.jpg', 'Ketal'),
-('KET-012', 'Camel Activate 20Uni', 'CAT-003', '17.90', 'Camel', 120, 'camelA.jpg', 'Ketal'),
+('KET-012', 'Camel Activate 20Uni', 'CAT-003', '17.90', 'Camel', 116, 'camelA.jpg', 'Ketal'),
 ('KET-013', 'Agua 7L', 'CAT-003', '13.00', 'Villa Santa', 70, 'agua.jpg', 'Ketal'),
-('KET-014', 'Cerveza 620Ml', 'CAT-003', '14.00', 'Paceña', 23, 'cerveza.jpg', 'Ketal'),
-('KET-015', 'Coca Cola 3L', 'CAT-003', '12.90', 'Coca Cola', 86, 'coca3.jpg', 'Ketal'),
+('KET-014', 'Cerveza 620Ml', 'CAT-003', '14.00', 'Paceña', 13, 'cerveza.jpg', 'Ketal'),
+('KET-015', 'Coca Cola 3L', 'CAT-003', '12.90', 'Coca Cola', 81, 'coca3.jpg', 'Ketal'),
 ('FID-001', 'Ron Añejo 1L', 'CAT-003', '83.90', 'Ron Abuelo', 221, 'ron.jpg', 'Fidalga'),
 ('FID-002', 'Chocolate Vizzio', 'CAT-004', '23.50', 'Costa', 104, 'vizzio.jpg', 'Fidalga'),
 ('FID-003', 'Chocolate Sapito 30 Uni', 'CAT-004', '18.90', 'Sapito', 64, 'sapito.jpg', 'Fidalga'),
 ('FID-004', 'Doritos de Queso 200Gr', 'CAT-004', '19.90', 'Doritos', 74, 'dorito.jpg', 'Fidalga'),
 ('FID-005', 'Galletas Oreo Six Pack', 'CAT-004', '10.50', 'Oreo', 56, 'oreo.jpg', 'Fidalga'),
 ('FID-006', 'Chocolate M&M 150Gr', 'CAT-004', '27.80', 'M&M', 38, 'MYM.jpg', 'Fidalga'),
-('FID-007', 'Alfajor 6Uni', 'CAT-005', '11.90', 'Shopon', 27, 'alfajor.jpg', 'Fidalga'),
+('FID-007', 'Alfajor 6Uni', 'CAT-005', '11.90', 'Shopon', 25, 'alfajor.jpg', 'Fidalga'),
 ('FID-008', 'Pan Sarna Bolsa 10Uni', 'CAT-005', '0.70', 'Shopon', 43, 'Pan.jpg', 'Fidalga'),
 ('FID-009', 'Cunape Abiscochado', 'CAT-005', '13.50', 'Monona', 72, 'cunape.jpg', 'Fidalga'),
 ('FID-010', 'Queque Chocolate 220 Gr', 'CAT-005', '9.90', 'La Suprema', 77, 'queque.jpg', 'Fidalga'),
 ('FID-011', 'Jabon Liquido 360Ml', 'CAT-006', '12.00', 'Liz', 365, 'jabonliquido.jpg', 'Fidalga'),
 ('FID-012', 'Papel Clasico 12Uni', 'CAT-006', '23.00', 'Nacional', 556, 'papel.jpg', 'Fidalga'),
-('FID-013', 'Jabon Original', 'CAT-006', '8.90', 'Dove', 175, 'jabon.jpg', 'Fidalga'),
+('FID-013', 'Jabon Original', 'CAT-006', '8.90', 'Dove', 173, 'jabon.jpg', 'Fidalga'),
 ('FID-014', 'Crema Peinar Rizos Obedientes', 'CAT-006', '16.70', 'Sedal', 129, 'crema.jpg', 'Fidalga'),
-('FID-015', 'Colgate MaxWhite', 'CAT-006', '19.60', 'Colgate', 15, 'colgate.jpg', 'Fidalga'),
-('HIP-002', 'Sprite 3L', 'CAT-003', '10.00', 'Coca-Cola', 26, '2020-11-27_20.04.19_sprite-3l.jpg', 'Hipermaxi');
+('FID-015', 'Colgate MaxWhite', 'CAT-006', '19.60', 'Colgate', 12, 'colgate.jpg', 'Fidalga'),
+('HIP-002', 'Sprite 3L', 'CAT-003', '10.00', 'Coca-Cola', 26, '2020-11-27_20.04.19_sprite-3l.jpg', 'Hipermaxi'),
+('TOF-001', 'Azucar Guabira 5Kg', 'CAT-007', '25.50', 'Guabira', 35, 'azucar-guabira-5kg.jpg', 'TodoFacil');
 
 -- --------------------------------------------------------
 
@@ -319,7 +330,26 @@ INSERT INTO `registro` (`Fecha`, `NombreAdmin`, `Tabla`, `Accion`) VALUES
 ('2020-12-04 19:52:38', 'Fidalga', 'Venta', 'Actualizar'),
 ('2020-12-04 20:23:04', 'Ketal', 'Venta', 'Actualizar'),
 ('2020-12-04 22:47:42', 'Ketal', 'Venta', 'Actualizar'),
-('2020-12-04 22:57:43', 'Ketal', 'Venta', 'Actualizar');
+('2020-12-04 22:57:43', 'Ketal', 'Venta', 'Actualizar'),
+('2020-12-05 10:55:42', 'Ketal', 'Venta', 'Actualizar'),
+('2020-12-05 11:00:49', 'Fidalga', 'Venta', 'Actualizar'),
+('2020-12-06 23:59:35', 'Ketal', 'Producto', 'Registrar'),
+('2020-12-06 23:59:48', 'Ketal', 'Producto', 'Eliminar'),
+('2020-12-07 00:02:03', 'Ketal', 'Producto', 'Registrar'),
+('2020-12-07 00:02:09', 'Ketal', 'Producto', 'Eliminar'),
+('2020-12-07 00:05:07', 'Ketal', 'Producto', 'Registrar'),
+('2020-12-07 00:05:39', 'Ketal', 'Producto', 'Eliminar'),
+('2020-12-07 00:28:31', 'Hipermaxi', 'Administrador', 'Modificar'),
+('2020-12-07 00:29:13', 'Fidalga', 'Administrador', 'Modificar'),
+('2020-12-07 00:41:55', 'Fidalga', 'Producto', 'Actualizar'),
+('2020-12-07 00:42:04', 'Fidalga', 'Producto', 'Actualizar'),
+('2020-12-07 01:18:44', 'admin', 'Administrador', 'Registrar'),
+('2020-12-07 01:22:04', 'admin', 'Administrador', 'Registrar'),
+('2020-12-07 01:31:03', 'TodoFacil', 'Categoria', 'Registrar'),
+('2020-12-07 01:33:11', 'TodoFacil', 'Categoria', 'Actualizar'),
+('2020-12-07 01:36:44', 'TodoFacil', 'Producto', 'Registrar'),
+('2020-12-07 01:42:58', 'TodoFacil', 'Administrador', 'Modificar'),
+('2020-12-07 03:37:19', 'Ketal', 'Venta', 'Actualizar');
 
 -- --------------------------------------------------------
 
@@ -339,7 +369,7 @@ CREATE TABLE IF NOT EXISTS `venta` (
   `FechaRecogo` varchar(30) NOT NULL DEFAULT '-',
   `MotivoCancelacion` varchar(150) NOT NULL DEFAULT '-',
   PRIMARY KEY (`NumPedido`)
-) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `venta`
@@ -360,7 +390,9 @@ INSERT INTO `venta` (`NumPedido`, `Fecha`, `NIT`, `TotalPagar`, `Estado`, `Nombr
 (18, '2020-12-04 20:10:14', '6962296', '353.10', 'Entregado', 'Ketal', '2020-12-04 20:23:04', '2020-12-07', '-'),
 (19, '2020-12-04 22:44:45', '6962296', '23.00', 'Entregado', 'Ketal', '2020-12-04 22:47:42', '2020-12-13', '-'),
 (21, '2020-12-04 22:49:39', '6962296', '454.80', 'Cancelado', 'Ketal', '-', '2020-12-08', 'No tenemos stock suficiente.'),
-(23, '2020-12-04 23:03:25', '6962296', '181.80', 'Pendiente', 'Ketal', '-', '2020-12-13', '-');
+(23, '2020-12-04 23:03:25', '6962296', '181.80', 'Cancelado', 'Ketal', '-', '2020-12-13', 'No tenemos stock de los productos que solicito.'),
+(24, '2020-12-05 10:59:19', '6962296', '100.40', 'Entregado', 'Fidalga', '2020-12-05 11:00:49', '2020-12-07', '-'),
+(25, '2020-12-07 02:54:04', '6565221', '276.10', 'Cancelado', 'Ketal', '-', '2020-12-08', 'Falta de stock.');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
