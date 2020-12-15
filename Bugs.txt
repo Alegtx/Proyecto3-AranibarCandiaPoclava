@@ -1,0 +1,42 @@
+<====== PENDIENTE ======>
+
+	NADA!!!!!! SOMOS LIBREEEEEEES!!!!
+
+<====== ARREGLADO ======>
+
+	<=== Index ===>
+	- Los supermercados no se muestran correctamente en el index.
+
+	<=== Carrito ===>
+	- El modal no cambiaba cuando se seleccionaba un producto que no sea del supermercado elegido.
+	- Al aumentar o disminuir un producto en el carrito el precio no se sumaba o restaba correctamente.
+
+	<=== Pedidos ===>
+	- Los pedidos se podian hacer una fecha anterior a la actual.
+	- Los pedidos se podian hacer una hora anterior a la actual si la fecha era el mismo dia del pedido.
+	
+	<=== Productos ===>
+	- Capacidad de poder escribir el numero de items a comprar.
+	- Si un supermercado esta logeado solo mostrar sus productos.
+	- Corregir el error que no se añade correctamente los productos desde los detalles.
+
+	<=== Registro ===>
+	- No se validaban los campos que se llenaban con vacios.
+	- No se validaba el texto introducido en los campos.
+	- El captcha no cambiaba si se introducia correctamente.
+
+	<=== Parte administrativa ===>
+		<== Productos ==>
+		- No se validaban los campos que se llenaban con vacios.
+		- No se validaba el texto introducido en los campos.
+		<== Categorias ==>
+		- No se validaban los campos que se llenaban con vacios.
+		- No se validaba el texto introducido en los campos.
+		<== Info ==>
+		- Se borraban las imagenes del sistema y no se renombraban.
+
+	<=== Khipu ===>
+	- A pasar el precio con Khipu si tenia un punto en vez coma de decimales se pasaba a miles.
+
+	<=== Sistema en general ===>
+	- El sistema no admitia multiples supermercados.
