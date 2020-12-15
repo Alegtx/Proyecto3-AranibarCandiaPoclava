@@ -11,17 +11,19 @@
 	- Capacidad de eliminar un producto del carrito.
 	- Que el mensaje del modal cambie dependiendo si el supermercado es correcto o no.
 	- Poner boton para mostrar historial de pedidos.
-	-Poder definir cuantos productos se quiere eliminar.
+	- Poder definir cuantos productos se quiere eliminar.
 
 	<=== Pedidos ===>
 	- Mostrar un mensaje cuando un supermercado quiera hacer un pedido.
-	- Corregir el error que no se añade correctamente los productos desde los detalles.
+	
 	- Añadir fecha a la que el usuario desea que se entrege el producto.
 	- Añadir hora a la que el usuario desea que se entrege el producto.
+	- Hacer que no se puede seleccionar una hora anterior si el pedido se requiere hoy.
 
 	<=== Productos ===>
 	- Capacidad de poder escribir el numero de items a comprar.
 	- Si un supermercado esta logeado solo mostrar sus productos.
+	- Corregir el error que no se añade correctamente los productos desde los detalles.
 
 	<=== Registro ===>
 	- Añadir boton de "ver password" en el formulario de registro.
