@@ -70,12 +70,29 @@ $(function(){
     fechaMax = fechaActual.getTime() + (añadirMes); 
     var fechaFormateada = new Date(fechaMax); 
     var maxDate = retornarFecha(fechaFormateada);
-
+    
     /*alert(minDate);
     alert(maxDate);*/
     $('#fecha-recogo').attr('min', minDate);
     $('#fecha-recogo').attr('max', maxDate);
+
 });
+
+function cambiarHoraMinima()
+{
+    var fechaActual = new Date();
+    //Obtener la hora minima
+    var minHour = fechaActual.getHours()+":"+fechaActual.getMinutes();
+    if($('#fecha-recogo').val() == $("#fecha-recogo").attr("min"))
+    {
+        $('#hora-recogo').attr('min', minHour);
+    }
+    else
+    {
+        $('#hora-recogo').attr('min', '08:00');
+    }
+}
+
 function retornarFecha(fecha){
     var mes = fecha.getMonth() + 1;
     var dia = fecha.getDate();
